@@ -31,3 +31,6 @@ def Actas (request):
 #Metodo Alta de Profesores
 def AltaProfesores (request):
     return render(request,"Alta_ Profesores.html")
+#Metodo Baja de Profesores
+def BajaProfesores (request):
+    return render(request,"Baja_profesores.html")
