@@ -27,4 +27,4 @@ def Formatos (request):
     return render(request,"Formatos.html")
 #Metodo de vizualización de Actas
 def Actas (request):
-    return render(request,"Actas.html")
+    return render(request, "Actas.html")
