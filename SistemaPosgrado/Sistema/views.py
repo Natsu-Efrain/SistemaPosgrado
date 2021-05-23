@@ -9,3 +9,4 @@ def Login (request):
 #Metodo de vizualización de Login
 def Formatos (request):
     return render(request,"Formatos.html")
+#esto es una prueba 
