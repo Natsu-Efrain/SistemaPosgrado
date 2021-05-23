@@ -16,7 +16,7 @@ def Login (request):
             usuarios=Usuario.objects.get(Usuario=usuario)
             #Se valida en los datos ingresados en la base de datos
             if(usuarios.Usuario==usuario and usuarios.Contraseña==password):
-                return render(request,"gracias.html")
+                return render(request,"Modulos.html")
             else:
                 return render(request,"fallo.html")
     except:
