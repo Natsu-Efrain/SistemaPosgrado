@@ -34,3 +34,6 @@ def AltaProfesores (request):
 #Metodo Baja de Profesores
 def BajaProfesores (request):
     return render(request,"Baja_profesores.html")
+#Metodo Calificaciones
+def Calificaciones (request):
+    return render(request,"Calificaciones_profesores.html")
