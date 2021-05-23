@@ -28,3 +28,6 @@ def Formatos (request):
 #Metodo de vizualización de Actas
 def Actas (request):
     return render(request, "Actas.html")
+#Metodo Alta de Profesores
+def AltaProfesores (request):
+    return render(request,"Alta_Profesores.html")

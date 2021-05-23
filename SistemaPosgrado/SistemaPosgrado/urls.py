@@ -21,4 +21,6 @@ urlpatterns = [
     path('Login/', views.Login),
     path('AsignarU-P/', views.Formatos),
     path('Actas/', views.Actas),
+    path('AltaProfesores/', views.Actas),
+
 ]
