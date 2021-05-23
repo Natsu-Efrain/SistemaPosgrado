@@ -24,4 +24,5 @@ urlpatterns = [
     path('AltaProfesores/', views.AltaProfesores),
     path('BajaProfesores/', views.BajaProfesores),
     path('Calificaciones/', views.Calificaciones),
+    path('EstadoAl/', views.EstadoAlumno),
 ]
