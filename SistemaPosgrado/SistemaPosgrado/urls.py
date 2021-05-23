@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Login/', views.Login),
     path('AsignarU-P/', views.Formatos),
+    path('Actas/', views.Formatos),
 ]
