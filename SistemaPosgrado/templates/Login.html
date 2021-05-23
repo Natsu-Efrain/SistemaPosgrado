@@ -18,6 +18,7 @@
         <div class="card-body justify-content-center">
           <img id="img-login" src="{% static 'assets/images/user.png' %}" alt="Login">
           <form action="/Login/" method="POST">
+            {% csrf_token %}
             <label for="username">Usuario</label>
             <div class="input-group form-group">
               <input type="text" class="form-control input-login" placeholder="Ingrese boleta o número de empleado" name="Usuario">
