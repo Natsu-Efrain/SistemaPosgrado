@@ -5,7 +5,7 @@ from django.db.models.fields import DateField
 
 #Codigo para crear la tabla Alumno
 class Alumno(models.Model):
-    Boleta=models.IntegerField(primary_key=True)
+    Boleta=models.BigIntegerField(primary_key=True)
     Nombre_A=models.CharField(max_length=25)
     Apellido_PA=models.CharField(max_length=15)
     Apellido_MA=models.CharField(max_length=15)
