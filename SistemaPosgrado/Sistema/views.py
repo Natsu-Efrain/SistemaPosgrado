@@ -22,9 +22,11 @@ def Login (request):
     except:
         return render(request,"fallo.html")
     return render(request,"Login.html")
-#Metodo de vizualización de Login
-def Formatos (request):
-    return render(request,"Formatos.html")
+
+#Metodo de vizualización de AsignarU-P
+def AsignarU_P (request):
+    return render(request,"AsignarU-P.html")
+
 #Metodo de vizualización de Actas
 def Actas (request):
     return render(request, "Actas.html")

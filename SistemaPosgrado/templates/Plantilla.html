@@ -60,59 +60,7 @@
         <!-- Contenido de Pantallas  -->
         <section id="Contenido">
           <div class="izq">
-            <nav class="sidebar navbar-expand-lg">
-              <div class="container-fluid">
-                <!-- Para hacer el Menu en un solo boton al ser pequeña la pantalla -->
-                <button class="navbar-toggler B6" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon B6"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <div class="navbar-nav">
-                    <ul class="M1">
-                      <li>
-                        <a href="#" class="alumnos-btn">Alumnos<span class="icon-down-open"></span></a>
-                        <ul class="alumnos-show">
-                          <li><a href="#">Reinscripción</a></li>
-                          <li><a href="#">Registrar Alumno</a></li>
-                          <li><a href="#">Calificaciones</a></li>
-                          <li><a href="#">Registrar</a></li>
-                          <li><a href="#">Consultar</a></li>
-                          <li><a href="#">Cargar</a></li>
-                          <li><a href="#">Consulta General</a></li>
-                          <li><a href="#">Comité Tutorial</a></li>
-                          <li><a href="#">Estado de los Alumnos</a></li>
-                          <li><a href="#">Expediente Academico</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="#">Profesores</a></li>
-                      <li><a href="#">Unidades</a></li>
-                      <li><a href="#">Formatos</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <!-- En caso de Borra lo de arriba esto es el codigo del Menu Completo
-              <ul>
-                <li>
-                  <a href="#" class="alumnos-btn">Alumnos<span class="icon-down-open"></span></a>
-                  <ul class="alumnos-show">
-                    <li><a href="#">Reinscripción</a></li>
-                    <li><a href="#">Registrar Alumno</a></li>
-                    <li><a href="#">Calificaciones</a></li>
-                    <li><a href="#">Registrar</a></li>
-                    <li><a href="#">Consultar</a></li>
-                    <li><a href="#">Cargar</a></li>
-                    <li><a href="#">Consulta General</a></li>
-                    <li><a href="#">Comité Tutorial</a></li>
-                    <li><a href="#">Estado de los Alumnos</a></li>
-                    <li><a href="#">Expediente Academico</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Profesores</a></li>
-                <li><a href="#">Unidades</a></li>
-                <li><a href="#">Formatos</a></li>
-              </ul>-->
-            </nav>
+            {% block MenuDerecha %}{% endblock %}
           </div>
           <!-- Espacio para Barra de Menu Lateral -->
           <!-- Pantallas -->

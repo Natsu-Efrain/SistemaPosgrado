@@ -19,7 +19,7 @@ from Sistema import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Login/', views.Login),
-    path('AsignarU-P/', views.Formatos),
+    path('AsignarU-P/', views.AsignarU_P),
     path('Actas/', views.Actas),
     path('AltaProfesores/', views.AltaProfesores),
     path('BajaProfesores/', views.BajaProfesores),
