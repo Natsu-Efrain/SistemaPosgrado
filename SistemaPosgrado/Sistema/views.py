@@ -40,3 +40,6 @@ def Calificaciones (request):
 #Metodo Estado Alumno
 def EstadoAlumno (request):
     return render(request,"Est_Al.html") 
+#Metodo Expediente Alumno
+def Expediente (request):
+    return render(request,"Expediente_C.htmls") 
