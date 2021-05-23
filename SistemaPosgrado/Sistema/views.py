@@ -27,6 +27,10 @@ def Login (request):
 def AsignarU_P (request):
     return render(request,"AsignarU-P.html")
 
+#Metodo de vizualización de Modulos
+def Modulos (request):
+    return render(request,"Modulos.html")
+
 #Metodo de vizualización de Actas
 def Actas (request):
     return render(request, "Actas.html")

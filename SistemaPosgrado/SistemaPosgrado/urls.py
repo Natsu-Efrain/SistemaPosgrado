@@ -27,4 +27,5 @@ urlpatterns = [
     path('EstadoAl/', views.EstadoAlumno),
     path('Expediente/', views.Expediente),
     path('Kardex/', views.Kardex),
+    path('Modulos/', views.Modulos),
 ]
