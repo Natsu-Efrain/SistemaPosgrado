@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields import DateField
 
 # Create your models here.
 
@@ -24,11 +25,18 @@ class Alumno(models.Model):
     Estado_A=models.CharField(max_length=10)
     Semestre=models.CharField(max_length=3)
 
+#Codigo para crear la tabla de Unidades de Aprendizaje
+class Unidad_de_Aprendizaje(models.Model):
+    Clave=models.CharField(max_length=7,primary_key=True)
+    Nombre_U=models.CharField(max_length=30)
+    Posgrado=models.CharField(max_length=25)
+    Tipo_U=models.CharField(max_length=10)
+    Estado_U=models.CharField(max_length=10)
+
 #Codigo para crear la tabla de Calificaciones
 class Calificaciones(models.Model):
-    alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
-    Boleta=models.IntegerField()
-    Clave_M=models.CharField(max_length=7)
+    Boleta = models.ForeignKey(Alumno, on_delete=models.CASCADE)
+    Clave_M=models.ForeignKey(Unidad_de_Aprendizaje,on_delete=models.CASCADE)
     unique_together=('Boleta','Clave_M')
     Dep_1=models.IntegerField()
     Dep_2=models.IntegerField()
@@ -36,25 +44,9 @@ class Calificaciones(models.Model):
     Fecha=models.DateField()
     Periodo=models.CharField(max_length=3)
 
-#Codigo para crear la tabla de Unidades de Aprendizaje
-class Unidad_de_Aprendizaje(models.Model):
-    calificaciones=models.ForeignKey(Calificaciones,on_delete=models.CASCADE)
-    Clave=models.CharField(max_length=7,primary_key=True)
-    Nombre_U=models.CharField(max_length=30)
-    Posgrado=models.CharField(max_length=25)
-    Tipo_U=models.CharField(max_length=10)
-    Estado_U=models.CharField(max_length=10)
-
-#Codigo para crear la tabla de Asignación de Unidad
-class Asignacion_de_Unidad(models.Model):
-    Clave_M=models.CharField(max_length=7)
-    Num_Emp=models.CharField(max_length=15)
-    unique_together=('Clave_M','Num_Emp')
-    Periodo=models.CharField(max_length=3)
-
 #Codigo para crear la tabla de Personal
 class Personal(models.Model):
-    Num_Emp=models.CharField(max_length=15)
+    Num_Emp=models.CharField(max_length=15,primary_key=True)
     Nombre_P=models.CharField(max_length=25)
     Apellido_PP=models.CharField(max_length=15)
     Apellido_MP=models.CharField(max_length=15)
@@ -73,6 +65,49 @@ class Personal(models.Model):
     Tipo_A=models.CharField(max_length=10)
     Estado_P=models.CharField(max_length=10)
     Cargo=models.CharField(max_length=30)
+
+#Codigo para crear la tabla de Asignación de Unidad
+class Asignacion_de_Unidad(models.Model):
+    Clave_M=models.ForeignKey(Unidad_de_Aprendizaje,on_delete=models.CASCADE)
+    Num_Emp=models.ForeignKey(Personal,on_delete=models.CASCADE)
+    unique_together=('Clave_M','Num_Emp')
+    Periodo=models.CharField(max_length=3)
+
+#Codigo para crear la tabla de Usuario
+class Usuario(models.Model):
+    Usuario=models.CharField(max_length=15,primary_key=True)
+    Contraseña=models.CharField(max_length=15)
+
+#Codigo para crear la tabla de Solicitudes Colegio
+class Solicitudes_Colegion(models.Model):
+    Folio=models.IntegerField(primary_key=True)
+    Boleta=models.ForeignKey(Alumno,on_delete=models.CASCADE)
+    Num_Emp=models.ForeignKey(Personal,on_delete=models.CASCADE)
+    Documento=models.FileField(upload_to='SistemaPosgrado/archivos/')
+    Nombre_Tram=models.CharField(max_length=30)
+    Periodo=models.CharField(max_length=3)
+    Fecha=models.DateField()
+    Estatus=models.CharField(max_length=11)
+    Respuesta=models.FileField(upload_to='SistemaPosgrado/archivos/')
+
+#Codigo para crear la tabla de Reportes Comité
+class Reportes_Comite(models.Model):
+    Clave_Comite=models.CharField(max_length=3,primary_key=True)
+    Boleta=models.ForeignKey(Alumno, on_delete=models.CASCADE)
+    Solicitud_Com=models.FileField(upload_to='SistemaPosgrado/archivos/')
+    Fecha=models.DateField()
+
+#Codigo para crear la tabla de Expediente Academico
+class Expediente_Academico(models.Model):
+    Boleta=models.ForeignKey(Alumno, on_delete=models.CASCADE)
+    unique_together=('Boleta')
+    Acta_alumno=models.FileField(upload_to='SistemaPosgrado/archivos/')
+    CURP=models.FileField(upload_to='SistemaPosgrado/archivos/')
+    Titulo=models.FileField(upload_to='SistemaPosgrado/archivos/')
+    Constancia_ingles=models.FileField(upload_to='SistemaPosgrado/archivos/')
+
+
+
 
 
 
