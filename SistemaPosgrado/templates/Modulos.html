@@ -1,21 +1,14 @@
 {% extends "Plantilla.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modulos</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/estilos_modulos.css' %}">
-    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.j' %}s"></script>
-</head>
-<body>
-
- <!-- Modulos  -->
- <div class="Modulos">
+{% block Estilos %}
+<link rel="stylesheet" href="{% static 'css/estilos_modulos.css' %}">
+{% endblock %}
+{% block Titulo %}
+<title>Sistema Posgrado</title>
+{% endblock %}
+{% block Pantalla %}
+<!-- Modulos  -->
+<div class="Modulos">
           <div class="Alumnos">
               <div class="M">
                 <div class="card-body justify-content-center">
@@ -47,6 +40,7 @@
                   </div>
               </div>
             </div>
+          </div>
 
 
             <div class="Coordinadores">
@@ -57,8 +51,10 @@
                       <input type="submit" value="Coordinadores de posgrado" class="btn login_btn">
                     </div>
                 </div>
+              </div>
+            </div>
 
-                </div><div class="Sepi">
+                <div class="Sepi">
                   <div class="M">
                     <div class="card-body justify-content-center">
                       <img id="img-alumno" src="{% static 'assets/images/recepcionista.png' %}" alt="Login">
@@ -67,9 +63,6 @@
                         </div>
                     </div>
                   </div>
+                </div>
 </div>
-
-  </body>
-  </html>
-
-  
+{% endblock %}
