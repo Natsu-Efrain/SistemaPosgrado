@@ -43,3 +43,6 @@ def EstadoAlumno (request):
 #Metodo Expediente Alumno
 def Expediente (request):
     return render(request,"Expediente_C.html") 
+#Metodo Kardex Alumno
+def Kardex (request):
+    return render(request,"Kardex.html")
