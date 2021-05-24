@@ -1,11 +1,11 @@
 from django.http.request import HttpHeaders, HttpRequest
 from django.shortcuts import render
-from django.http.response import HttpResponse
+from django.http.response import HttpResponseRedirect
 from Sistema.models import Usuario
 # Create your views here.
 # Prueba de commit Ian Mira
 #Metodo #1 de vizualización de Login
-def Login (request):
+def Costo (request):
     try:
         #Se validan si se hace una petición en el formulario de Login
         if(request.method == "POST"):
@@ -16,12 +16,19 @@ def Login (request):
             usuarios=Usuario.objects.get(Usuario=usuario)
             #Se valida en los datos ingresados en la base de datos
             if(usuarios.Usuario==usuario and usuarios.Contraseña==password):
-                return render(request,"Modulos.html")
+                return HttpResponseRedirect('/Modulos/')
             else:
                 return render(request,"fallo.html")
     except:
         return render(request,"fallo.html")
     return render(request,"Login.html")
+
+
+
+#Prueba
+def Modulos (request):
+    return render(request,"Modulos.html")
+
 
 #Metodo de vizualización de AsignarU-P
 def AsignarU_P (request):

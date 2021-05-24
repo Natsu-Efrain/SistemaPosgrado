@@ -12,20 +12,27 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </head>
 <body>
+  {% if form.errors %}
+  <div class="alert alert-danger fade in alert-dismissible show">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true" style="font-size:25px">&times;</span>
+     </button><strong>¡Error!</strong> Usuario o contraseña incorrectos.
+   </div>
+  {% endif %}
   <div class="container">
     <div class="d-flex justify-content-center h-100">
       <div class="card">
         <div class="card-body justify-content-center">
           <img id="img-login" src="{% static 'assets/images/user.png' %}" alt="Login">
-          <form action="/Login/" method="POST">
+          <form method="POST">
             {% csrf_token %}
             <label for="username">Usuario</label>
             <div class="input-group form-group">
-              <input type="text" class="form-control input-login" placeholder="Ingrese boleta o número de empleado" name="Usuario">
+              <input type="text" class="form-control input-login" placeholder="Ingrese boleta o número de empleado" name="username">
             </div>
             <label for="password">Contraseña</label>
             <div class="input-group form-group">
-              <input type="password" class="form-control input-login" placeholder="Ingrese contraseña" name="Password">
+              <input type="password" class="form-control input-login" placeholder="Ingrese contraseña" name="password">
             </div>
             <div class="d-flex justify-content-center">
               <input type="submit" value="Login" class="btn login_btn">
