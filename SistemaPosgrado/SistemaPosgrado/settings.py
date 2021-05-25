@@ -81,10 +81,10 @@ DATABASES = {
     'ENGINE': 'django.db.backends.oracle',
     'NAME': 'SistemaPosgrado',
     'USER': 'SYSTEM',
-    'PASSWORD':'atenea',
+    'PASSWORD':'EFRAINdark_9',
     'NAME':'xe',
     'HOST':'localhost',
-    'PORT':'1522',
+    'PORT':'1521',
 }
 }
 
