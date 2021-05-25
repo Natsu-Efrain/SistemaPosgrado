@@ -12,7 +12,12 @@
     <link rel="stylesheet" href="css/Menu_Prof.css">
     <link rel="stylesheet" href="css/fontello.css">
 
-    <title>Menu Principal</title>
+    {% endblock %}
+      {% block Titulo %}<title>Menu Principal</title>{% endblock %}
+      {% block MenuDerecha %}
+      {% include "SideBar_Coord.html" %}
+      {% endblock %}
+      {% block Pantalla %}
   </head>
   <body>
         <h1 class="mod"> Módulo de Cordinación de Posgrado </h1>

@@ -13,7 +13,13 @@
         <link rel="stylesheet" href="css/Encabezado.css">
         <link rel="stylesheet" href="css/Rep_Tu.css">
     
-        <title> Carga de Reportes de Comité Tutorial</title>
+        {% endblock %}
+      {% block Titulo %}<title> Carga de Reportes de Comité Tutorial</title>{% endblock %}
+      {% block MenuDerecha %}
+      {% include "SideBar_Alum.html" %}
+      {% endblock %}
+      {% block Pantalla %}
+        
       </head>
       <body>
             <form action="" class="R" id="Rep_Comi">

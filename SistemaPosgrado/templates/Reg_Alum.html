@@ -13,7 +13,13 @@
         <link rel="stylesheet" href="css/Encabezado.css">
         <link rel="stylesheet" href="css/Reg_Alum.css">
     
-        <title>Registro de Alumno</title>
+        {% endblock %}
+      {% block Titulo %}<title>Registro de Alumno</title>{% endblock %}
+      {% block MenuDerecha %}
+      {% include "SideBar_JCE.html" %}
+      {% endblock %}
+      {% block Pantalla %}
+        
       </head>
       <body>
             <form action="" class="R" id="Reg_Alumno">

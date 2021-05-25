@@ -19,6 +19,9 @@
       </head>
       {% endblock %}
       {% block Titulo %}<title>Kardex</title>{% endblock %}
+      {% block MenuDerecha %}
+      {% include "SideBar_Alum.html" %}
+      {% endblock %}
       {% block Pantalla %}
             <form action="" class="R" id="Kardex">
               <p><label for="Alumno"> Alumno: @Alumno </label></p>

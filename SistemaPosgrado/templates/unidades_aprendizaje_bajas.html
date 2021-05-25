@@ -5,7 +5,12 @@
   <meta charset="UTF-8">
   <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unidad de aprendizaje</title>
+  {% endblock %}
+{% block Titulo %}<title> Baja Unidad de aprendizaje</title>{% endblock %}
+{% block MenuDerecha %}
+{% include "SideBar_Coord.html" %}
+{% endblock %}
+{% block Pantalla %}
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/estilos_unidades.css">
   <link rel="stylesheet" href="css/fontello.css">
