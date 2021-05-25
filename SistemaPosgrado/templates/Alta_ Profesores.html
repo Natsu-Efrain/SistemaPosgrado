@@ -2,7 +2,6 @@
 {% load static %}
 {% block Estilos %}
 <!-- Prueba de que Andy estuvo aqui -->
-<head>
     <meta charset="UTF-8">
     <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,40 +11,46 @@
     <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
     <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-</head>
     {% endblock %}
     {% block Titulo %}<title>AltaProfesores</title>{% endblock %}
     {% block Pantalla %}
-
+    {% if validacion == 'Exito' %}
+    <div class="alert alert-success fade in alert-dismissible show">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true" style="font-size:25px">&times;</span>
+         </button><strong>¡Exito!</strong> El profesor ha sido registrado
+       </div>
+    {% endif %}
     <div class="der" >
-        <form action="" class="R">
+        <form action="/AltaProfesores/" class="R" method="POST">
+            {% csrf_token %}
             <div class="form-group row R2" >
                 <label for="Numero de empleado" class="col-sm-1 col-form-label">Número de empleado</label>
-                <input type="number" class="form-control col-sm-4 R3" id="numero_empleado" placeholder="1-2-3...">
+                <input type="number" class="form-control col-sm-4 R3" id="numero_empleado" placeholder="1-2-3..." name="numero_empleado">
             </div>
             <div class="form-row R2" >
                 <div class="form-group col-md-4 text-center">
                     <label for="Nom_A">Nombre (s)</label>
-                    <input type="text" class="form-control R3" id="Nom_A" >
+                    <input type="text" class="form-control R3" id="Nom_A" name="nombre">
                 </div>
                 <div class="form-group col-md-4 text-center">
                     <label for="AP_A">Apellido Paterno</label>
-                    <input type="text" class="form-control R3" id="AP_A">
+                    <input type="text" class="form-control R3" id="AP_A" name="apellidoP">
                 </div>
                 <div class="form-group col-md-4 text-center">
                     <label for="AM_A">Apellido Materno</label>
-                    <input type="text" class="form-control R3" id="AM_A">
+                    <input type="text" class="form-control R3" id="AM_A" name="apellidoM">
                 </div>
             </div>
             
             <div class="form-row R2" >
                 <div class="form-group col-md-2 text-center">
                     <label for="Edad_A">Edad</label>
-                    <input type="number" class="form-control R3" id="Edad_A">
+                    <input type="number" class="form-control R3" id="Edad_A" name="edad">
                 </div>
                 <div class="form-group col-md-2 text-center">
                     <label for="Sexo_A">Sexo</label>
-                    <select class="form-control R3" id="Sexo_A">
+                    <select class="form-control R3" id="Sexo_A" name="sexo">
                         <option class="is-invalid"> ... </option>
                         <option value="F"> Femenino </option>
                         <option value="M"> Masculino </option>
@@ -53,15 +58,15 @@
                 </div>
                 <div class="form-group col-md-2 text-center">
                     <label for="Tipo_A">Tipo</label>
-                    <select class="form-control R3" id="Tipo_A">
+                    <select class="form-control R3" id="Tipo_A" name="tipo">
                         <option class="is-invalid"> ... </option>
-                        <option value="TC_A"> Tiempo Completo </option>
-                        <option value="TP_A"> Tiempo Parcial </option>
+                        <option value="TC"> Tiempo Completo </option>
+                        <option value="TP"> Tiempo Parcial </option>
                     </select>
                 </div>
                 <div class="form-group col-md-6 text-center">
                     <label for="Tel_A">Telefono</label>
-                    <input type="number" class="form-control R3" id="Tel_A" placeholder="1-2-3-4...">
+                    <input type="number" class="form-control R3" id="Tel_A" placeholder="1-2-3-4..." name="telefono">
                 </div>
             </div>
             <div class="form-group form-inline row R2" >
@@ -70,48 +75,48 @@
                     <div class="input-group-prepend">
                       <div class="input-group-text R5">@</div>
                     </div>
-                    <input type="text" class=" form-control R3 R4" id="Correo_A" placeholder="Username">
+                    <input type="text" class=" form-control R3 R4" id="Correo_A" placeholder="Username" name="correo">
                 </div>
             </div>
             <label for="" class="R5"> <span class="R5"> Dirección </span>  </label>
             <div class="form-group row R2" >
                 <label for="Calle" class="col-sm-1 col-form-label"> Calle </label>
-                <input type="text" class=" form-control col-sm-4 R3" id="Calle">
+                <input type="text" class=" form-control col-sm-4 R3" id="Calle" name="calle">
             </div>
             <div class="form-row R2" >
                 <div class="form-group col-md-2 text-center">
                     <label for="N_In_A">#Interior</label>
-                    <input type="number" class="form-control R3" id="N_In_A">
+                    <input type="number" class="form-control R3" id="N_In_A" name="numero_interior">
                 </div>
                 <div class="form-group col-md-2 text-center">
                     <label for="N_Ex_A">#Exterior</label>
-                    <input type="number" class="form-control R3" id="N_Ex_A">
+                    <input type="number" class="form-control R3" id="N_Ex_A" name="numero_exterior">
                 </div>
                 <div class="form-group col-md-2 text-center">
                     <label for="C.P_A">C.P.</label>
-                    <input type="number" class="form-control R3" id="C.P_A">
+                    <input type="number" class="form-control R3" id="C.P_A" name="codigo_postal">
                 </div>
                 <div class="form-group col-md-6 text-center">
                     <label for="Col_A">Colonia</label>
-                    <input type="text" class="form-control R3" id="Col_A">
+                    <input type="text" class="form-control R3" id="Col_A" name="colonia">
                 </div>
             </div>
             <div class="form-group row R2">
                 <label for="Est_A" class="col-sm-1 col-form-label"> Estado </label>
-                <select class="form-control col-sm-9 R7" id="Est_A">
+                <select class="form-control col-sm-9 R7" id="Est_A" name="estado">
                   <option class="is-invalid"> ... </option>
-                  <option value="1"> Distrito Federal </option>
+                  <option value="Distrito Federal"> Distrito Federal </option>
                 </select>
             </div>
             <div class="form-group row R2">
                 <label for="Mun_A" class="col-sm-1 col-form-label"> Municipio </label>
-                <select class="form-control col-sm-9 R7" id="Mun_A">
+                <select class="form-control col-sm-9 R7" id="Mun_A" name="municipio">
                   <option class="is-invalid"> ... </option>
-                  <option value="1"> Azcapotzalco </option>
-                  <option value="2"> Coyoacán </option>
-                  <option value="3"> Cuajimalpa de Morelos </option>
-                  <option value="4"> Gustavo A. Madero </option>
-                  <option value="5"> Iztacalco </option>
+                  <option value="Azcapotzalco"> Azcapotzalco </option>
+                  <option value="Coyoacán"> Coyoacán </option>
+                  <option value="Cuajimalpa de Morelos"> Cuajimalpa de Morelos </option>
+                  <option value="Gustavo A. Madero"> Gustavo A. Madero </option>
+                  <option value="Iztacalco"> Iztacalco </option>
                 </select>
             </div>
             <!-- Por si nos arrepentimos y mejor tamos que ellos lo ingresen solos
