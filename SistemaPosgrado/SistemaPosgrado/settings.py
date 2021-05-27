@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
-    'Sistema',
+    'Interfaz_General',
+    'Alumnos',
+    'Profesores',
+    'Formatos',
+    'Unidades_de_Aprendizaje',
 ]
 
 MIDDLEWARE = [
