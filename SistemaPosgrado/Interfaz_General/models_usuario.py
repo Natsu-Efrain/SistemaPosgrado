@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 #Codigo para crear la tabla de Usuario
 class Usuario(models.Model):
