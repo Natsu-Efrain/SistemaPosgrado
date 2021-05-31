@@ -1,0 +1,48 @@
+{% extends "Plantilla.html" %}
+{% load static %}
+{% block Estilos %}
+<head>
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+ 
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+     <link rel="stylesheet" href="css/fontello.css">
+     <link rel="stylesheet" href="css/Encabezado.css">
+     <link rel="stylesheet" href="css/New_U.css">
+ 
+     {% endblock %}
+      {% block Titulo %}<title> Nuevo Usuario </title>{% endblock %}
+      {% block MenuDerecha %}
+      {% include "SideBar_Alum.html" %}
+      {% endblock %}
+      {% block Pantalla %}
+</head>
+<body>
+    <form action="" class="R" id="New_U">
+        <div class="form-group row R2" >
+            <label for="Usuario" class="col-sm-3 col-form-label"> Nombre del Usuario </label>
+            <input type="number" class="form-control col-sm-4 R3" id="Usuario" placeholder="1-2-3...">
+          </div>
+          <div class="form-group row R2" >
+            <label for="Contraseña" class="col-sm-3 col-form-label"> Contraseña </label>
+            <input type="password" class="form-control col-sm-4 R3" id="Contraseña">
+          </div>
+          <div class="form-group row R2">
+            <label for="Rol_U" class="col-sm-3 col-form-label"> Rol a Asignar </label>
+            <select class="form-control col-sm-8 R3" id="Rol_U">
+              <option class="is-invalid"> ... </option>
+              <option value=" ">  </option>
+              <option value=" ">  </option>
+              <option value=" ">  </option>
+              <option value=" ">  </option>
+            </select>
+          </div>
+          <button type="submit" class="btn B1" id="btn-Reg_U" > Registrar </button>
+    </form>
+</body>
+{% endblock %}
