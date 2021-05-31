@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from Alumnos.models_Alumno import Alumno
+from Alumnos.models_calificaciones import Calificaciones
+
 
 # Create your views here.
 #Metodo Calificaciones

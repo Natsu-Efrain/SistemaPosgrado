@@ -3,7 +3,7 @@ from Alumnos.models_Alumno import Alumno
 from Profesores.models_personal import Personal
 # Create your models here.
 #Codigo para crear la tabla de Solicitudes Colegio
-class Solicitudes_Colegion(models.Model):
+class Solicitudes_Colegio(models.Model):
     Folio=models.IntegerField(primary_key=True)
     Boleta=models.ForeignKey(Alumno,on_delete=models.CASCADE)
     Num_Emp=models.ForeignKey(Personal,on_delete=models.CASCADE)

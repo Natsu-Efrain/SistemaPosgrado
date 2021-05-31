@@ -1,6 +1,6 @@
 from django.db import models
 from Alumnos.models_Alumno import Alumno
-from Unidad_de_Aprendizaje.models_unidad_aprendizaje import Unidad_de_Aprendizaje
+from Unidades_de_Aprendizaje.models_unidad_aprendizaje import Unidad_de_Aprendizaje
 # Create your models here.
 #Codigo para crear la tabla de Calificaciones
 class Calificaciones(models.Model):

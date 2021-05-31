@@ -1,5 +1,5 @@
 from django.db import models
-from Unidad_de_Aprendizaje.models_unidad_aprendizaje import Unidad_de_Aprendizaje
+from Unidades_de_Aprendizaje.models_unidad_aprendizaje import Unidad_de_Aprendizaje
 from Profesores.models_personal import Personal
 # Create your models here.
 #Codigo para crear la tabla de Asignación de Unidad
