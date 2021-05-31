@@ -1,6 +1,7 @@
 {% extends "Plantilla.html" %}
 {% load static %}
 {% block Estilos %}
+
 <head>
     <meta charset="UTF-8">
     <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
@@ -18,28 +19,29 @@
 {% include "SideBar_JCE.html" %}
 {% endblock %}
 {% block Pantalla %}
-    <div class="der" >
-        <form action="" class="R">
-            <div class="form-group row R2" >
-                <label for="Numero de empleado" class="col-sm-1 col-form-label">Número de empleado</label>
-                <input type="number" class="form-control col-sm-4 R3" id="numero_empleado" placeholder="1-2-3...">
+<div class="der">
+    <form action="/BajaProfesores/" class="R" method="POST">
+        {% csrf_token %}
+        <div class="form-group row R2">
+            <label for="Numero de empleado" class="col-sm-1 col-form-label">Número de empleado</label>
+            <input type="number" class="form-control col-sm-4 R3" id="numero_empleado" placeholder="1-2-3..." name="numero_empleado">
+        </div>
+        <div class="form-row R2">
+            <div class="form-group col-md-4 text-center">
+                <label for="Nom_A">Nombre (s)</label>
+                <input type="text" class="form-control R3" id="Nom_A" name="Nom_A">
             </div>
-            <div class="form-row R2" >
-                <div class="form-group col-md-4 text-center">
-                    <label for="Nom_A">Nombre (s)</label>
-                    <input type="text" class="form-control R3" id="Nom_A" >
-                </div>
-                <div class="form-group col-md-4 text-center">
-                    <label for="AP_A">Apellido Paterno</label>
-                    <input type="text" class="form-control R3" id="AP_A">
-                </div>
-                <div class="form-group col-md-4 text-center">
-                    <label for="AM_A">Apellido Materno</label>
-                    <input type="text" class="form-control R3" id="AM_A">
-                </div>
+            <div class="form-group col-md-4 text-center">
+                <label for="AP_A">Apellido Paterno</label>
+                <input type="text" class="form-control R3" id="AP_A" name="AP_A">
             </div>
-            
-            <!-- Por si nos arrepentimos y mejor tamos que ellos lo ingresen solos
+            <div class="form-group col-md-4 text-center">
+                <label for="AM_A">Apellido Materno</label>
+                <input type="text" class="form-control R3" id="AM_A" name="AM_A">
+            </div>
+        </div>
+
+        <!-- Por si nos arrepentimos y mejor tamos que ellos lo ingresen solos
             <div class="form-group row R2" >
                 <label for="Est_A" class="col-sm-1 col-form-label"> Estado </label>
                 <input type="text" class="col-sm-4 R3" id="Est_A">
@@ -49,8 +51,11 @@
                 <input type="text" class="col-sm-4 R3" id="Mun_A">
             </div>
             -->
-            <button type="submit" class="btn B1 " id="btn-Re_Al" > Dar de baja </button>
-        </form>
-      </div>
-    </section>
-    {% endblock %}
+        <button type="submit" class="btn B1 " id="btn-Re_Al"> Dar de baja </button>
+    </form>
+</div>
+</section>
+
+
+
+{% endblock %}
