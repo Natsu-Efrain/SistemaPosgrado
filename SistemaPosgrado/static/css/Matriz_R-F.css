@@ -1,0 +1,29 @@
+body{
+    background: url(fondo_escudo.jpg);
+    height: 100%; 
+}
+.R2{
+    margin-top: 50px;
+    font-family: 'Roboto';
+}
+.R3{
+    margin-left: 40%;
+}
+.B1{
+    margin-left: 10%;
+    background-color: #672445;
+    color: #B595A4;
+    border-radius: 20px;
+}
+.T1{
+    background-color: #672445;
+    color: #B595A4;
+}
+.B2{
+    margin-left: 40%;
+    background-color: #672445;
+    color: #B595A4;
+    border-radius: 20px;
+    width: 25%;
+    margin-top: 30px;
+}

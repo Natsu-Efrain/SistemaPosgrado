@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
+{% extends "Plantilla.html" %}
+{% load static %}
+{% block Estilos %}
 <head>
   <meta charset="UTF-8">
   <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro de calificaciones</title>
+  {% endblock %}
+      {% block Titulo %}<title> </title>{% endblock %}
+      {% block MenuDerecha %}
+      {% include "SideBar_Alum.html" %}
+      {% endblock %}
+      {% block Pantalla %}
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/estilos_registro_usuarios.css">
   <link rel="stylesheet" href="css/fontello.css">
