@@ -7,3 +7,6 @@ $('.profesor-btn').click(function(){
 $('.unidades-btn').click(function(){
         $('nav ul .unidades-show').toggleClass("show");
 });
+$('.admin-btn').click(function(){
+        $('nav ul .admin-show').toggleClass("show");
+});
