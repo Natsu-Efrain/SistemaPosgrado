@@ -4,3 +4,6 @@ $('.alumnos-btn').click(function(){
 $('.profesor-btn').click(function(){
         $('nav ul .profesor-show').toggleClass("show");
 });
+$('.unidades-btn').click(function(){
+        $('nav ul .unidades-show').toggleClass("show");
+});
