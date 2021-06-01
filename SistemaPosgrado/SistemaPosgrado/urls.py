@@ -31,6 +31,8 @@ urlpatterns = [
     path('Modulos/', login_required(views_InterfazGeneral.Modulos), name='Modulos'),
     path('AsignarU-P/', views_Unidad.AsignarU_P),
     path('Actas/', views_profesores.Actas),
+    path('AltaUnidades/', views_Unidad.AltaUnidades),
+    path('BajaUnidades/', views_Unidad.BajaUnidades),
     path('AltaProfesores/', views_profesores.AltaProfesores),
     path('BajaProfesores/', views_profesores.BajaProfesores),
     #path('BajaProfesores/<str:validacion>/', views_profesores.BajaProfesores_validacion,name="BajaProfesores_validacion"),
