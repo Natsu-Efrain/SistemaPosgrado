@@ -1,61 +1,73 @@
 {% extends "Plantilla.html" %}
 {% load static %}
 {% block Estilos %}
-<head>
   <meta charset="UTF-8">
   <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/estilos_unidades.css">
+  <link rel="stylesheet" href="css/fontello.css">
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   {% endblock %}
 {% block Titulo %}<title>Alta Unidad de aprendizaje</title>{% endblock %}
 {% block MenuDerecha %}
 {% include "SideBar_Coord.html" %}
 {% endblock %}
 {% block Pantalla %}
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/estilos_unidades.css">
-  <link rel="stylesheet" href="css/fontello.css">
-  <script src="js/jquery-3.6.0.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-</head>
-
-<body>
-
+  {% if validacion == 'Exito' %}
+  <div class="alert alert-success fade in alert-dismissible show">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true" style="font-size:25px">&times;</span>
+      </button><strong>¡Exito!</strong> La Unidad de Aprendizaje ha sido registrado
+  </div>
+  {% elif validacion == 'Fallo' %}
+  <div class="alert alert-danger fade in alert-dismissible show">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true" style="font-size:25px">&times;</span>
+      </button><strong>¡Fallo!</strong> La Unidad de Aprendizaje no se registro
+  </div>
+  {% endif %}
   <!--Funcionalidades-->
   <div class="col-md-10">
     <div class="card-body justify-content-center">
-      <form>
+      <form action="/AltaUnidades/" method="POST">
+        {% csrf_token %}
         <label id="Text_profesor">@Profesor</label>
         <div class="Tex_Unidad">
         <label for="password">Clave de unidades de aprendizaje </label>
         <div class="input-group form-group">
-          <input type="password" class="form-control input-login" >
+          <input type="text" class="form-control input-login" name="Clave" >
         </div>
         </div>
 
         <div class="Tex_nombre">
           <label for="password">Nombre de la unidad de aprendizaje</label>
           <div class="input-group form-group">
-            <input type="password" class="form-control input-login" >
+            <input type="text" class="form-control input-login" name="Nombre_U">
           </div>
           </div>
 
 
         <div class="Select_Dep">
           <label for="Unidad_A" class="dep"> Tipo de unidad  </label>
-          <select class="form-control col-sm-8 R5" id="Unidad_A">
+          <select class="form-control col-sm-8 R5" id="Tipo_U" name="Tipo_U">
             <option class="is-invalid"> ... </option>
-            <option value=" ">  </option>
-            <option value=" ">  </option>
+            <option value="Optativa">Optativa</option>
+            <option value="Obligatoria">Obligatoria</option>
           </select>
         </div>
 
 
         <div class="Select_posgrado">
-          <label for="Unidad_A" class="dep">Posgrado </label>
-          <select class="form-control col-sm-8 R5" id="Unidad_A">
+          <label for="Unidad_A" class="dep">Posgrado</label>
+          <select class="form-control col-sm-8 R5" id="Posgrado" name="Posgrado">
             <option class="is-invalid"> ... </option>
-            <option value=" ">  </option>
-            <option value=" ">  </option>
+            <option value="Maestría en Administración">Maestría en Administración</option>
+            <option value="Maestría en Ingeniería Industrial">Maestría en Ingeniería Industria</option>
+            <option value="Maestría en Informática">Maestría en Informática</option>
+            <option value="Maestría en Ciencias en Estudios Interdisciplinarios para Pequeñas, Medianas Empresas"> Maestría en Ciencias en Estudios Interdisciplinarios para Pequeñas, Medianas Empresas</option>
+            <option value="Doctorado en Gestión y Políticas de Innovación">Doctorado en Gestión y Políticas de Innovación</option>
           </select>
         </div>
 
@@ -63,10 +75,8 @@
         <div>
           <input id="boton_alta" type="submit" value="Dar de alta" class="btn  reg_btn">
         </div>
-       
       </div>
       </form>
     </div>
 </div>
-</body>
 {% endblock %}

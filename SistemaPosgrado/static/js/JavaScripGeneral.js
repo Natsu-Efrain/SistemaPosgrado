@@ -14,3 +14,12 @@ var text3 = e3.options[e3.selectedIndex].text;
 var e4 = document.getElementById("Mun_A");
 var value4 = e4.options[e4.selectedIndex].value;
 var text4 = e4.options[e4.selectedIndex].text;
+//Función para obtener el valor del select de Tipo de Unidad
+var e5 = document.getElementById("Tipo_U");
+var value5 = e5.options[e5.selectedIndex].value;
+var text5 = e5.options[e5.selectedIndex].text;
+//Función para obtener el valor del select de Posgrado
+var e6 = document.getElementById("Posgrado");
+var value6 = e6.options[e6.selectedIndex].value;
+var text6 = e6.options[e6.selectedIndex].text;
+

@@ -1,5 +1,5 @@
 from django.db import models
-from Alumnos.models_alumno import Alumno
+from Alumnos.models_Alumno import Alumno
 
 # Create your models here.
 #Codigo para crear la tabla de Expediente Academico

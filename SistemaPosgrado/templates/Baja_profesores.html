@@ -19,6 +19,19 @@
 {% include "SideBar_JCE.html" %}
 {% endblock %}
 {% block Pantalla %}
+{% if validacion == 'Exito' %}
+    <div class="alert alert-success fade in alert-dismissible show">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true" style="font-size:25px">&times;</span>
+        </button><strong>¡Exito!</strong> El profesor ha sido dado de bajo
+    </div>
+    {% elif validacion == 'Fallo' %}
+    <div class="alert alert-danger fade in alert-dismissible show">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true" style="font-size:25px">&times;</span>
+        </button><strong>¡Fallo!</strong> El profesor no esta registrado
+    </div>
+{% endif %}
 <div class="der">
     <form action="/BajaProfesores/" class="R" method="POST">
         {% csrf_token %}

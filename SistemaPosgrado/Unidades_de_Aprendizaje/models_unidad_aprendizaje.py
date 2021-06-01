@@ -5,7 +5,7 @@ from django.db import models
 class Unidad_de_Aprendizaje(models.Model):
     Clave=models.CharField(max_length=7,primary_key=True)
     Nombre_U=models.CharField(max_length=30)
-    Posgrado=models.CharField(max_length=25)
+    Posgrado=models.CharField(max_length=100)
     Tipo_U=models.CharField(max_length=10)
     Estado_U=models.CharField(max_length=10)
 
