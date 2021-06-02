@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.urls import path
 from django.contrib.auth.views import LoginView, logout_then_login
+from Admin import views_Admin
 from Interfaz_General import views_InterfazGeneral
 from Alumnos import views_alumno
 from Profesores import views_profesores
@@ -26,6 +27,7 @@ from Formatos import views_Formatos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('Matriz_R-F/',views_Admin.Matriz_R_F),
     path('accounts/login/', LoginView.as_view(template_name='Login.html'),name='login'),
     path('Logout',logout_then_login,name='logout'),
     path('Modulos/', login_required(views_InterfazGeneral.Modulos), name='Modulos'),
@@ -40,7 +42,9 @@ urlpatterns = [
     path('EstadoAl/', views_alumno.EstadoAlumno),
     path('Expediente/', views_Formatos.Expediente),
     path('Kardex/', views_alumno.Kardex),
-    
+    path('Sol_Col_A/', views_Formatos.Sol_Col_A),
+    path('Sol_Col_P/', views_Formatos.Sol_Col_P),
+    path('Reg_Alum/', views_alumno.Reg_Alum),
    # path('Bienvenida/', views.BienvenidaView),
     #path('Sing_up/', views.SignUpView),
 ]

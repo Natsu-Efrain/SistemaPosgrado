@@ -4,7 +4,7 @@ from Profesores.models_personal import Personal
 # Create your models here.
 #Codigo para crear la tabla de Solicitudes Colegio
 class Solicitudes_Colegio(models.Model):
-    Folio=models.IntegerField(primary_key=True)
+    Folio=models.AutoField(primary_key=True)
     Boleta=models.ForeignKey(Alumno,on_delete=models.CASCADE)
     Num_Emp=models.ForeignKey(Personal,on_delete=models.CASCADE)
     Documento=models.FileField(upload_to='SistemaPosgrado/archivos/')
