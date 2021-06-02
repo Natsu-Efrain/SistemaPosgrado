@@ -79,4 +79,22 @@ nav ul li  a span{
 .M1{
     margin-top: 60px;
 }
+.N{
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    padding-left: 5px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent ;
+    line-height:  30px;
+    border-bottom: 3px solid rgba(141, 37, 86, 1);
+}
+.N:hover{
+    color:white;
+    background:rgba(181, 149, 164, 0.2);
+    border-left-color: white;
+    
+}
 

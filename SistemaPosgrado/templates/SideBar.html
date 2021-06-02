@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar del Jefe de Control Escolar</title>
+    <title>Sidebar de Alumnos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/ejemplo_barra.css">
@@ -23,21 +23,41 @@
         <div class="navbar-nav">
           <ul class="M1">
             <li>
-              <a href="#" class="alumnos-btn">Alumnos &nbsp&nbsp<span class="icon-down-open M1"></span></a>
+              <a href="#" class="alumnos-btn">Alumnos &nbsp<span class="icon-down-open"></span></a>
               <ul class="alumnos-show">
-                <li><a href="#">Inscripciones</a></li>
-                <li><a href="#">Calificaciones</a></li>
-                <li><a href="#">Estado de los Alumnos</a></li>
-                <li><a href="#">Expediente Academico</a></li>
+                <li><a href="#">Inscripción</a></li>
+                <li><a href="#">Reinscripción</a></li>
+                <li><a href="#">Registrar Calificaciones </a></li>
+                <li><a href="#">Consultar Calificaciones </a></li>
+                <li><a href="#">Solicitudes al Colegio</a></li>
+                <li><a href="#">Respuesta a Solicitudes al Colegio</a></li>
+                <li><a href="#">Comité Tutorial</a></li>
+                <li><a href="#">Consultar Alumnos </a></li>
+                <li><a href="#">Expediente Académico </a></li>
               </ul>
             </li>
-            <li>
-              <a href="#" class="profesor-btn">Profesores &nbsp<span class="icon-down-open M1"></span></a>
+            <a href="#" class="profesor-btn N">Profesores &nbsp<span class="icon-down-open"></span></a>
               <ul class="profesor-show">
-                <li><a href="#">Alta Profesor</a></li>
-                <li><a href="#">Baja Profesor</a></li>
+                <li><a href="#">Alta de Profesor</a></li>
+                <li><a href="#">Baja de Profesor</a></li>
+                <li><a href="#">Asignar Unidades </a></li>
+                <li><a href="#">Actas</a></li>
               </ul>
             </li>
+            <a href="#" class="unidades-btn N">Unidades &nbsp<span class="icon-down-open"></span></a>
+              <ul class="unidades-show">
+                <li><a href="#">Alta de Unidad</a></li>
+                <li><a href="#">Baja de Unidad</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Formatos</a></li>
+          </li>
+          <a href="#" class="admin-btn N">Administración &nbsp<span class="icon-down-open"></span></a>
+            <ul class="admin-show">
+              <li><a href="#">Nuevo Usuario</a></li>
+              <li><a href="#">Asigar Funciones a Roles</a></li>
+            </ul>
+          </li>
           </ul>
         </div>
       </div>
@@ -64,6 +84,9 @@
       <li><a href="#">Formatos</a></li>
     </ul>-->
   </nav>
-<script src="js/SideBar.js"></script>
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="js/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <script src="js/SideBar.js"></script>
 </body>
 </html>
