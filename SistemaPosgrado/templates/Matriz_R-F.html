@@ -4,14 +4,17 @@
 <meta charset="UTF-8">
 <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/estilos_unidades.css">
-<link rel="stylesheet" href="css/fontello.css">
-<script src="js/jquery-3.6.0.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/JavaScripGeneral.js"></script>
-<link rel="stylesheet" href="css/Encabezado.css">
-<link rel="stylesheet" href="css/Matriz_R-F.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="{% static 'css/fontello.'%}">
+<link rel="stylesheet" href="{% static 'css/Encabezado.css' %}">
+<link rel="stylesheet" href="{% static 'js/jquery-3.6.0.min.js' %}">
+<link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
+<link rel="stylesheet" href="{% static 'js/JavaScripGeneral.js' %}">
+<link rel="stylesheet" href="{% static 'css/Matriz_R-F.css' %}">
+
 {% endblock %}
 {% block Titulo %}<title> Asignacion de Funciones a Roles </title>{% endblock %}
 {% block MenuDerecha %}
@@ -48,14 +51,14 @@
     {% csrf_token %}
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Rol</label>
-        <div class="col-sm-10">
-            <input type="hidden" class="form-control" id="Funcion" name="Funcion">
-            <input type="text" class="form-control" id="inputRol" placeholder="Ingrese nombre del rol" name="inputRol">
+        <div class="form-group row R2" >
+          <input type="hidden" class="form-control" id="Funcion" name="Funcion">
+          <input type="text" class="form-control col-sm-4 col-form-label" id="inputRol" placeholder="Ingrese nombre del rol" name="inputRol">
+          <button type="button" class="btn B1 col-sm-2 col-form-label" id="btn-Ag_R" onclick="enviarPost(this)"> Agregar
+            Rol</button>
+          <button type="button" class="btn B1 col-sm-2 col-form-label" id="btn-Quit_R" onclick="enviarPost(this)"> Quitar
+            Rol</button>
         </div>
-        <button type="button" class="btn B1 col-sm-2 col-form-label" id="btn-Ag_R" onclick="enviarPost(this)"> Agregar
-            Rol</button>
-        <button type="button" class="btn B1 col-sm-2 col-form-label" id="btn-Quit_R" onclick="enviarPost(this)"> Quitar
-            Rol</button>
         <script type="text/javascript">
             //Función para dos formularios
             function enviarPost(comp) {
