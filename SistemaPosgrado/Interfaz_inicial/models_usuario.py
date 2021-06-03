@@ -4,7 +4,5 @@ from ProfesoresApartado.models_personal import Personal
 # Create your models here.
 #Codigo para crear la tabla de Usuario
 class Usuario(models.Model):
-    Correo=models.ManyToManyField(Alumno)
-    Correo=models.ManyToManyField(Personal)
-    unique_together=('Correo')
+    Usuario=models.EmailField(max_length=50,primary_key=True)
     Contraseña=models.CharField(max_length=15)

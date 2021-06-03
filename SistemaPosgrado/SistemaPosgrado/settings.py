@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'AdminApartado',
-    'Interfaz_GeneralApartado',
+    'Interfaz_inicial',
     'AlumnosApartado',
     'ProfesoresApartado',
     'FormatosApartado',

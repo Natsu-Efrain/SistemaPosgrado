@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from Interfaz_GeneralApartado.models_usuario import Usuario
+from Interfaz_inicial.models_usuario import Usuario
 # Create your views here.
 #Metodo de vizualización de Modulos
 def Modulos (request):
