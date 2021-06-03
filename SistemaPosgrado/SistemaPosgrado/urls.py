@@ -41,7 +41,6 @@ urlpatterns = [
     path('AltaProfesores/', views_profesores.AltaProfesores),
     path('BajaProfesores/', views_profesores.BajaProfesores),
     #path('BajaProfesores/<str:validacion>/', views_profesores.BajaProfesores_validacion,name="BajaProfesores_validacion"),
-    path('Calificaciones/', views_alumno.Calificaciones),
     path('EstadoAl/', views_alumno.EstadoAlumno),
     path('Expediente/', views_Formatos.Expediente),
     path('Kardex/', views_alumno.Kardex),

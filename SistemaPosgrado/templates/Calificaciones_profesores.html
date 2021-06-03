@@ -1,16 +1,11 @@
-<th scope="col" class="T1"> Generar SIP-8BIS </th>
-
-<head>
+{% extends "Plantilla.html" %}
+{% load static %}
+{% block Estilos %}
     <meta charset="UTF-8">
     <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calificaciones Profesores</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/estilos_actas.css' %}">
-    <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
-    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js'%}"></script>
-</head>
+    <link rel="stylesheet" href="{% static 'css/estilos_calificaciones.css' %}">
 {% endblock %}
 {% block Titulo %}<title>Calificaciones</title>{% endblock %}
 {% block MenuDerecha %}

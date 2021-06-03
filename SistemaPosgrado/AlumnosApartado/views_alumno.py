@@ -5,8 +5,7 @@ from AlumnosApartado.models_calificaciones import Calificaciones
 
 # Create your views here.
 #Metodo Calificaciones
-def Calificaciones (request):
-    return render(request,"Calificaciones_profesores.html")
+
 #Metodo Estado Alumno
 def EstadoAlumno (request):
     return render(request,"Est_Al.html")
@@ -35,5 +34,5 @@ def Calificacion_JCE (request):
     return render(request,"Calificacion_JCE.html")
 
 def Calificacion_profesores (request):
-    return render(request,"Calificacion_profesores.html")
+    return render(request,"Calificaciones_profesores.html")
 
