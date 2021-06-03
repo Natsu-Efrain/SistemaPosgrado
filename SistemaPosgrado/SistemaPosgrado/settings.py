@@ -81,17 +81,17 @@ WSGI_APPLICATION = 'SistemaPosgrado.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-'default': {
-    'ENGINE': 'django.db.backends.oracle',
-    'NAME': 'SistemaPosgrado',
-    'USER': 'SYSTEM',
-    'PASSWORD':'EFRAINdark_9',
-    'NAME':'xe',
-    'HOST':'localhost',
-    'PORT':'1521',
-}
-}
+#DATABASES = {
+#'default': {
+#    'ENGINE': 'django.db.backends.oracle',
+#    'NAME': 'SistemaPosgrado',
+#    'USER': 'SYSTEM',
+#    'PASSWORD':'EFRAINdark_9',
+#    'NAME':'xe',
+#    'HOST':'localhost',
+#    'PORT':'1521',
+#}
+#}
 
 
 # Password validation
