@@ -17,12 +17,12 @@ from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.urls import path
 from django.contrib.auth.views import LoginView, logout_then_login
-from Admin import views_Admin
-from Interfaz_General import views_InterfazGeneral
-from Alumnos import views_alumno
-from Profesores import views_profesores
-from Unidades_de_Aprendizaje import views_Unidad
-from Formatos import views_Formatos
+from AdminApartado import views_Admin
+from Interfaz_GeneralApartado import views_InterfazGeneral
+from AlumnosApartado import views_alumno
+from ProfesoresApartado import views_profesores
+from Unidades_de_AprendizajeApartado import views_Unidad
+from FormatosApartado import views_Formatos
 
 
 urlpatterns = [

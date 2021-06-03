@@ -39,12 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
-    'Admin',
-    'Interfaz_General',
-    'Alumnos',
-    'Profesores',
-    'Formatos',
-    'Unidades_de_Aprendizaje',
+    'AdminApartado',
+    'Interfaz_GeneralApartado',
+    'AlumnosApartado',
+    'ProfesoresApartado',
+    'FormatosApartado',
+    'Unidades_de_AprendizajeApartado',
 ]
 
 MIDDLEWARE = [
