@@ -19,3 +19,21 @@ def Kardex (request):
 def Reg_Alum (request):
     
     return render(request,"Reg_Alum.html")
+
+#Metodo Reinscripción
+def Reinscripcion (request):
+    
+    return render(request,"Reinscripcion.html")
+
+def Registro_Calificaciones (request):
+    return render(request,"Registro_Calificaciones.html")
+
+def Est_Al (request):
+    return render(request,"Est_Al.html")
+
+def Calificacion_JCE (request):
+    return render(request,"Calificacion_JCE.html")
+
+def Calificacion_profesores (request):
+    return render(request,"Calificacion_profesores.html")
+

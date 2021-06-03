@@ -19,3 +19,6 @@ def Expediente (request):
 #Metodo de vizualización de Reportes de Comité Tutorial
 def Rep_Tu (request):
     return render(request,"Rep_Tu.html")
+#Metodo de vizualización de Reportes de Formatos
+def Formatos (request):
+    return render(request,"Formatos.html")
