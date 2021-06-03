@@ -1,38 +1,8 @@
-html, body {/* codigo parte de arriba */
+hhtml, body {/* codigo parte de arriba */
    background-image: url('../assets/images/fondo_escudo.jpg');
    height: 100%;
 }
 
- .navbar{
-    background-color:#EAEAEA;
-    margin:0%;
-    padding: 0%;
- }
- 
- #img-logosgob{
-    width: 470px;
-    height: 90px;
-    margin-top: 0px;
-    margin-left: 250px;
- }
- 
- #img-poli{
-    margin-top: -116px;
-    margin-left: 750px;
-    width: 255px;
-    height: 67px;
- }
- 
- #img_logo_upiicsa{
-    position: absolute;
-    z-index: 2;
-    width: 162px;
-    height: 162px;
-    margin-left: -8px;
-    margin-top: -55px;   
- }
- 
- 
  #label-formatos
  {
     font-size: 30px;
@@ -53,13 +23,7 @@ html, body {/* codigo parte de arriba */
     background: #672445;
  }
  
- #img-gob{
-   vertical-align: middle;
-   border-style:none;
-    height: 29px;
-    margin-left: 90px;
- }
-
+ 
   
   .M{
       width: 235px;
@@ -93,15 +57,15 @@ html, body {/* codigo parte de arriba */
    }
 
    .Alumnos{
-      margin-left: 65px;
+      margin-left: 200sspx;
    }
    .Dep_posgrado{
       margin-top: -55px;
-      margin-left: 65px;
+      margin-left: 320px;
    }
 
    .Gestion{
-      margin-left: 400px;
+      margin-left: 320px;
       margin-top: -585px;
    }
    .Coordinadores{
@@ -112,9 +76,8 @@ html, body {/* codigo parte de arriba */
 
    .Sepi{
       margin-top: -585px;
-      margin-left: 323px;
+      margin-left: 630px;
    }
-
 
  /* termina codigo parte de arriba */
  
