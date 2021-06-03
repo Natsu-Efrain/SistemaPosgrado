@@ -1,23 +1,25 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Posgrado</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <meta charset="UTF-8">
+  <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Posgrado</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+  <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </head>
+
 <body>
   {% if form.errors %}
   <div class="alert alert-danger fade in alert-dismissible show">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-       <span aria-hidden="true" style="font-size:25px">&times;</span>
-     </button><strong>¡Error!</strong> Usuario o contraseña incorrectos.
-   </div>
+      <span aria-hidden="true" style="font-size:25px">&times;</span>
+    </button><strong>¡Error!</strong> Usuario o contraseña incorrectos.
+  </div>
   {% endif %}
   <div class="container">
     <div class="d-flex justify-content-center h-100">
@@ -28,7 +30,8 @@
             {% csrf_token %}
             <label for="username">Usuario</label>
             <div class="input-group form-group">
-              <input type="text" class="form-control input-login" placeholder="Ingrese boleta o número de empleado" name="username">
+              <input type="text" class="form-control input-login" placeholder="Ingrese boleta o número de empleado"
+                name="username">
             </div>
             <label for="password">Contraseña</label>
             <div class="input-group form-group">
@@ -45,11 +48,11 @@
             <input type="submit" id="btn-resgistrar" value="Resgistrar Usuario" class="btn login_btn">
           </div>
           <div class="d-flex justify-content-center links">
-            Olvide mi contraseña.
+            <p><a href="#">Olvide mi contraseña</a></p>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </body>
+
 </html>
