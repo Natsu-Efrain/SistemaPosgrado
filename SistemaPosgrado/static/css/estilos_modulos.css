@@ -1,4 +1,4 @@
-hhtml, body {/* codigo parte de arriba */
+html, body {/* codigo parte de arriba */
    background-image: url('../assets/images/fondo_escudo.jpg');
    height: 100%;
 }
@@ -78,6 +78,13 @@ hhtml, body {/* codigo parte de arriba */
       margin-top: -585px;
       margin-left: 630px;
    }
+
+   .Admin{
+      margin-top: -55px;
+      margin-left: 630px;
+   }
+
+ /* term
 
  /* termina codigo parte de arriba */
  
