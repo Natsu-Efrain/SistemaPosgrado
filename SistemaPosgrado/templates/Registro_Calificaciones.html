@@ -1,7 +1,6 @@
 {% extends "Plantilla.html" %}
 {% load static %}
 {% block Estilos %}
-<head>
   <meta charset="UTF-8">
   <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +10,9 @@
       {% include "SideBar.html" %}
       {% endblock %}
       {% block Pantalla %}
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/estilo_reg_calificaciones.css">
-  <link rel="stylesheet" href="css/fontello.css">
-  <script src="js/jquery-3.6.0.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-</head>
+  <link rel="stylesheet" href="{% static 'css/estilo_reg_calificaciones.css' %}">
+  <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
 <body>
 
