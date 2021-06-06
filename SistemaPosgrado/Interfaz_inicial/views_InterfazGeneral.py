@@ -45,3 +45,22 @@ def Registro_U (request):
 
 def Recuperar_contraseña (request):
     return render(request,"recuperar_contraseña.html")
+
+def Menu_P_JCE (request):
+    return render(request,"Menu P_JCE.html")
+
+def Menu_P_Prof (request):
+    return render(request,"Menu P_Prof.html")
+
+def Menu_P_A (request):
+    return render(request,"Menu P_JCE.html")
+
+def Menu_P_Cor (request):
+    return render(request,"Menu P_A.html")
+
+def Menu_P_Dep (request):
+    return render(request,"Menu P_Dep.html")
+
+def Menu_P_SP (request):
+    return render(request,"Menu P_SP.html")
+

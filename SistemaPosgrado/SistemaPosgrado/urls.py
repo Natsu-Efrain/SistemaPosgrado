@@ -54,6 +54,12 @@ urlpatterns = [
     path('Est_Al/',views_alumno.Est_Al),
     path('Calificacion_JCE/',views_alumno.Calificacion_JCE),
     path('Calificacion_profesores/',views_alumno.Calificacion_profesores),
+    path('Menu_P_JCE/',views_InterfazGeneral.Menu_P_JCE),
+    path('Menu_P_Prof/',views_InterfazGeneral.Menu_P_Prof),
+    path('Menu_P_A/',views_InterfazGeneral.Menu_P_A),
+    path('Menu_P_Cor/',views_InterfazGeneral.Menu_P_Cor),
+    path('Menu_P_Dep/',views_InterfazGeneral.Menu_P_Dep),
+    path('Menu_P_SP/',views_InterfazGeneral.Menu_P_SP),
     #path('Bienvenida/', views.BienvenidaView),
     #path('Sing_up/', views.SignUpView),
 ]
