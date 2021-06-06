@@ -26,7 +26,7 @@
       <div class="card">
         <div class="card-body justify-content-center">
           <img id="img-login" src="{% static 'assets/images/user.png' %}" alt="Login">
-          <form method="POST">
+          <form id="Rol" method="POST" value="Rol" name="Rol">
             {% csrf_token %}
             <label for="username">Usuario</label>
             <div class="input-group form-group">
@@ -45,7 +45,7 @@
             ¿Aún no tienes una cuenta?
           </div>
           <div class="d-flex justify-content-center">
-            <input type="button" id="btn-resgistrar" value="Resgistrar Usuario" class="btn login_btn" href="/Registrar_U/">
+            <a href="/Registro_U/" id="btn-resgistrar" class="btn login_btn">Registrar Usuario</a>
           </div>
           <div class="d-flex justify-content-center links">
             <p><a href="#">Olvide mi contraseña</a></p>

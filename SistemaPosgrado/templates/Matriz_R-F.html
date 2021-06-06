@@ -1,20 +1,10 @@
-{% extends "Plantilla.html" %}
-{% load static %}
-{% block Estilos %}
+{% extends "Plantilla.html" %} {% load static %} {% block Estilos %}
 <meta charset="UTF-8">
 <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{% static 'js/jquery-3.6.0.min.js' %}">
-<link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
 <link rel="stylesheet" href="{% static 'js/JavaScripGeneral.js' %}">
-<link rel="stylesheet" href="{% static 'css/Matriz_R-F.css' %}">
-{% endblock %}
-{% block Titulo %}<title> Asignacion de Funciones a Roles </title>{% endblock %}
-{% block MenuDerecha %}
-{% include "SideBar.html" %}
-{% endblock %}
-{% block Pantalla %}
-{% if validacion == 'Exito' %}
+<link rel="stylesheet" href="{% static 'css/Matriz_R.css' %}"> {% endblock %} {% block Titulo %}
+<title> Asignacion de Funciones a Roles </title>{% endblock %} {% block MenuDerecha %} {% include "SideBar.html" %} {% endblock %} {% block Pantalla %} {% if validacion == 'Exito' %}
 <div class="alert alert-success fade in alert-dismissible show">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true" style="font-size:25px">&times;</span>
@@ -26,8 +16,7 @@
         <span aria-hidden="true" style="font-size:25px">&times;</span>
     </button><strong>¡Fallo!</strong> No registro cambios en la funciones acorde al rol
 </div>
-{% endif %}
-{% if validacion_2 == 'Exito' %}
+{% endif %} {% if validacion_2 == 'Exito' %}
 <div class="alert alert-success fade in alert-dismissible show">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true" style="font-size:25px">&times;</span>
@@ -43,13 +32,13 @@
 <form action="/Matriz_R-F/" id="Rol" method="POST" value="Rol" name="Rol">
     {% csrf_token %}
     <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Rol</label>
-        <div class="form-group row R2" >
-          <input type="hidden" class="form-control" id="Funcion" name="Funcion">
-          <input type="text" class="form-control col-sm-4 col-form-label" id="inputRol" placeholder="Ingrese nombre del rol" name="inputRol">
-          <button type="button" class="btn B1 col-sm-2 col-form-label" id="btn-Ag_R" onclick="enviarPost(this)"> Agregar
+        <div class="form-group row R2">
+            <div class="Formato"></div>
+            <input type="hidden" class="form-control" id="Funcion" name="Funcion">
+            <input type="text" class="form-control col-sm-2 col-form-label" id="inputRol" placeholder="Ingrese nombre del rol" name="inputRol">
+            <button type="button" class="btn B1 col-sm-2 col-form-label" id="btn-Ag_R" onclick="enviarPost(this)"> Agregar
             Rol</button>
-          <button type="button" class="btn B1 col-sm-2 col-form-label" id="btn-Quit_R" onclick="enviarPost(this)"> Quitar
+            <button type="button" class="btn B1 col-sm-2 col-form-label" id="btn-Quit_R" onclick="enviarPost(this)"> Quitar
             Rol</button>
         </div>
         <script type="text/javascript">
@@ -63,8 +52,7 @@
                     var formulario = document.Rol;
                     formulario.action = "/Matriz_R-F/";
                     formulario.submit();
-                }
-                else if (id == 'btn-Quit_R') {
+                } else if (id == 'btn-Quit_R') {
                     document.getElementById('Funcion').value = "Eliminar";
                     var formulario = document.Rol;
                     formulario.action = "/Matriz_R-F/";
@@ -106,162 +94,103 @@
             <tr>
                 <th scope="col" class="T1"> {{informacion.Rol}} </th>
                 {% if informacion.Registrar_inscripción == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_1" checked> <input
-                        type="hidden" id="{{informacion.Rol}}1" name="{{informacion.Rol}}1" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_1" checked> <input type="hidden" id="{{informacion.Rol}}1" name="{{informacion.Rol}}1" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_1"> <input type="hidden"
-                        id="{{informacion.Rol}}1" name="{{informacion.Rol}}1" value="0"> </th>
-                {% endif %}
-                {% if informacion.Registrar_reinscripción == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_2" checked> <input
-                        type="hidden" id="{{informacion.Rol}}2" name="{{informacion.Rol}}2" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_1"> <input type="hidden" id="{{informacion.Rol}}1" name="{{informacion.Rol}}1" value="0"> </th>
+                {% endif %} {% if informacion.Registrar_reinscripción == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_2" checked> <input type="hidden" id="{{informacion.Rol}}2" name="{{informacion.Rol}}2" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_2"> <input type="hidden"
-                        id="{{informacion.Rol}}2" name="{{informacion.Rol}}2" value="0"> </th>
-                {% endif %}
-                {% if informacion.Registrar_calificaciones == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_3" checked> <input
-                        type="hidden" id="{{informacion.Rol}}3" name="{{informacion.Rol}}3" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_2"> <input type="hidden" id="{{informacion.Rol}}2" name="{{informacion.Rol}}2" value="0"> </th>
+                {% endif %} {% if informacion.Registrar_calificaciones == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_3" checked> <input type="hidden" id="{{informacion.Rol}}3" name="{{informacion.Rol}}3" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_3"> <input type="hidden"
-                        id="{{informacion.Rol}}3" name="{{informacion.Rol}}3" value="0"> </th>
-                {% endif %}
-                {% if informacion.Consultar_calificaciones == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_4" checked> <input
-                        type="hidden" id="{{informacion.Rol}}4" name="{{informacion.Rol}}4" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_3"> <input type="hidden" id="{{informacion.Rol}}3" name="{{informacion.Rol}}3" value="0"> </th>
+                {% endif %} {% if informacion.Consultar_calificaciones == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_4" checked> <input type="hidden" id="{{informacion.Rol}}4" name="{{informacion.Rol}}4" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_4"> <input type="hidden"
-                        id="{{informacion.Rol}}4" name="{{informacion.Rol}}4" value="0"> </th>
-                {% endif %}
-                {% if informacion.Cargar_solicitudes_al_Colegio == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_5" checked> <input
-                        type="hidden" id="{{informacion.Rol}}5" name="{{informacion.Rol}}5" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_4"> <input type="hidden" id="{{informacion.Rol}}4" name="{{informacion.Rol}}4" value="0"> </th>
+                {% endif %} {% if informacion.Cargar_solicitudes_al_Colegio == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_5" checked> <input type="hidden" id="{{informacion.Rol}}5" name="{{informacion.Rol}}5" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_5"> <input type="hidden"
-                        id="{{informacion.Rol}}5" name="{{informacion.Rol}}5" value="0"> </th>
-                {% endif %}
-                {% if informacion.Cargar_Respuesta_solicitudes_al_Colegio == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_6" checked> <input
-                        type="hidden" id="{{informacion.Rol}}6" name="{{informacion.Rol}}6" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_5"> <input type="hidden" id="{{informacion.Rol}}5" name="{{informacion.Rol}}5" value="0"> </th>
+                {% endif %} {% if informacion.Cargar_Respuesta_solicitudes_al_Colegio == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_6" checked> <input type="hidden" id="{{informacion.Rol}}6" name="{{informacion.Rol}}6" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_6"> <input type="hidden"
-                        id="{{informacion.Rol}}6" name="{{informacion.Rol}}6" value="0"> </th>
-                {% endif %}
-                {% if informacion.Consultar_solicitudes_al_Colegio == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_7" checked> <input
-                        type="hidden" id="{{informacion.Rol}}7" name="{{informacion.Rol}}7" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_6"> <input type="hidden" id="{{informacion.Rol}}6" name="{{informacion.Rol}}6" value="0"> </th>
+                {% endif %} {% if informacion.Consultar_solicitudes_al_Colegio == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_7" checked> <input type="hidden" id="{{informacion.Rol}}7" name="{{informacion.Rol}}7" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_7"> <input type="hidden"
-                        id="{{informacion.Rol}}7" name="{{informacion.Rol}}7" value="0"> </th>
-                {% endif %}
-                {% if informacion.Cargar_reporte_del_Comité_Tutorial == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_8" checked> <input
-                        type="hidden" id="{{informacion.Rol}}8" name="{{informacion.Rol}}8" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_7"> <input type="hidden" id="{{informacion.Rol}}7" name="{{informacion.Rol}}7" value="0"> </th>
+                {% endif %} {% if informacion.Cargar_reporte_del_Comité_Tutorial == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_8" checked> <input type="hidden" id="{{informacion.Rol}}8" name="{{informacion.Rol}}8" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_8"> <input type="hidden"
-                        id="{{informacion.Rol}}8" name="{{informacion.Rol}}8" value="0"> </th>
-                {% endif %}
-                {% if informacion.Consultar_reportes_del_Comité_Tutorial == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_9" checked> <input
-                        type="hidden" id="{{informacion.Rol}}9" name="{{informacion.Rol}}9" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_8"> <input type="hidden" id="{{informacion.Rol}}8" name="{{informacion.Rol}}8" value="0"> </th>
+                {% endif %} {% if informacion.Consultar_reportes_del_Comité_Tutorial == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_9" checked> <input type="hidden" id="{{informacion.Rol}}9" name="{{informacion.Rol}}9" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_9"> <input type="hidden"
-                        id="{{informacion.Rol}}9" name="{{informacion.Rol}}9" value="0"> </th>
-                {% endif %}
-                {% if informacion.Consultar_alumnos_graduados_y_activos == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_10" checked> <input
-                        type="hidden" id="{{informacion.Rol}}10" name="{{informacion.Rol}}10" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_9"> <input type="hidden" id="{{informacion.Rol}}9" name="{{informacion.Rol}}9" value="0"> </th>
+                {% endif %} {% if informacion.Consultar_alumnos_graduados_y_activos == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_10" checked> <input type="hidden" id="{{informacion.Rol}}10" name="{{informacion.Rol}}10" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_10>"> <input type="hidden"
-                        id="{{informacion.Rol}}10" name="{{informacion.Rol}}10" value="0"> </th>
-                {% endif %}
-                {% if informacion.Cargar_documentos_de_expediente_académico == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_11" checked> <input
-                        type="hidden" id="{{informacion.Rol}}11" name="{{informacion.Rol}}11" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_10>"> <input type="hidden" id="{{informacion.Rol}}10" name="{{informacion.Rol}}10" value="0"> </th>
+                {% endif %} {% if informacion.Cargar_documentos_de_expediente_académico == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_11" checked> <input type="hidden" id="{{informacion.Rol}}11" name="{{informacion.Rol}}11" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_11"> <input type="hidden"
-                        id="{{informacion.Rol}}11" name="{{informacion.Rol}}11" value="0"> </th>
-                {% endif %}
-                {% if informacion.Registrar_profesores == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_12" checked> <input
-                        type="hidden" id="{{informacion.Rol}}12" name="{{informacion.Rol}}12" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_11"> <input type="hidden" id="{{informacion.Rol}}11" name="{{informacion.Rol}}11" value="0"> </th>
+                {% endif %} {% if informacion.Registrar_profesores == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_12" checked> <input type="hidden" id="{{informacion.Rol}}12" name="{{informacion.Rol}}12" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_12"> <input type="hidden"
-                        id="{{informacion.Rol}}12" name="{{informacion.Rol}}12" value="0"> </th>
-                {% endif %}
-                {% if informacion.Dar_de_baja_profesores == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_13" checked> <input
-                        type="hidden" id="{{informacion.Rol}}13" name="{{informacion.Rol}}13" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_12"> <input type="hidden" id="{{informacion.Rol}}12" name="{{informacion.Rol}}12" value="0"> </th>
+                {% endif %} {% if informacion.Dar_de_baja_profesores == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_13" checked> <input type="hidden" id="{{informacion.Rol}}13" name="{{informacion.Rol}}13" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_13"> <input type="hidden"
-                        id="{{informacion.Rol}}13" name="{{informacion.Rol}}13" value="0"> </th>
-                {% endif %}
-                {% if informacion.Asignar_la_Unidades_de_Aprendizaje == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_14" checked> <input
-                        type="hidden" id="{{informacion.Rol}}14" name="{{informacion.Rol}}14" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_13"> <input type="hidden" id="{{informacion.Rol}}13" name="{{informacion.Rol}}13" value="0"> </th>
+                {% endif %} {% if informacion.Asignar_la_Unidades_de_Aprendizaje == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_14" checked> <input type="hidden" id="{{informacion.Rol}}14" name="{{informacion.Rol}}14" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_14"> <input type="hidden"
-                        id="{{informacion.Rol}}14" name="{{informacion.Rol}}14" value="0"> </th>
-                {% endif %}
-                {% if informacion.Crear_actas_de_calificaciones == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_15" checked> <input
-                        type="hidden" id="{{informacion.Rol}}15" name="{{informacion.Rol}}15" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_14"> <input type="hidden" id="{{informacion.Rol}}14" name="{{informacion.Rol}}14" value="0"> </th>
+                {% endif %} {% if informacion.Crear_actas_de_calificaciones == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_15" checked> <input type="hidden" id="{{informacion.Rol}}15" name="{{informacion.Rol}}15" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_15"> <input type="hidden"
-                        id="{{informacion.Rol}}15" name="{{informacion.Rol}}15" value="0"> </th>
-                {% endif %}
-                {% if informacion.Registrar_Unidades_de_Aprendizaje == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_16" checked> <input
-                        type="hidden" id="{{informacion.Rol}}16" name="{{informacion.Rol}}16" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_15"> <input type="hidden" id="{{informacion.Rol}}15" name="{{informacion.Rol}}15" value="0"> </th>
+                {% endif %} {% if informacion.Registrar_Unidades_de_Aprendizaje == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_16" checked> <input type="hidden" id="{{informacion.Rol}}16" name="{{informacion.Rol}}16" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_16"> <input type="hidden"
-                        id="{{informacion.Rol}}16" name="{{informacion.Rol}}16" value="0"> </th>
-                {% endif %}
-                {% if informacion.Dar_de_baja_Unidades_de_Aprendizaje == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_17" checked> <input
-                        type="hidden" id="{{informacion.Rol}}17" name="{{informacion.Rol}}17" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_16"> <input type="hidden" id="{{informacion.Rol}}16" name="{{informacion.Rol}}16" value="0"> </th>
+                {% endif %} {% if informacion.Dar_de_baja_Unidades_de_Aprendizaje == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_17" checked> <input type="hidden" id="{{informacion.Rol}}17" name="{{informacion.Rol}}17" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_17"> <input type="hidden"
-                        id="{{informacion.Rol}}17" name="{{informacion.Rol}}17" value="0"> </th>
-                {% endif %}
-                {% if informacion.Generar_constancias_de_inscripción_con_promedio_global == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_18" checked> <input
-                        type="hidden" id="{{informacion.Rol}}18" name="{{informacion.Rol}}18" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_17"> <input type="hidden" id="{{informacion.Rol}}17" name="{{informacion.Rol}}17" value="0"> </th>
+                {% endif %} {% if informacion.Generar_constancias_de_inscripción_con_promedio_global == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_18" checked> <input type="hidden" id="{{informacion.Rol}}18" name="{{informacion.Rol}}18" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_18"> <input type="hidden"
-                        id="{{informacion.Rol}}18" name="{{informacion.Rol}}18" value="0"> </th>
-                {% endif %}
-                {% if informacion.Generar_SIP_8BIS == '1' %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_19" checked> <input
-                        type="hidden" id="{{informacion.Rol}}19" name="{{informacion.Rol}}19" value="1"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_18"> <input type="hidden" id="{{informacion.Rol}}18" name="{{informacion.Rol}}18" value="0"> </th>
+                {% endif %} {% if informacion.Generar_SIP_8BIS == '1' %}
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_19" checked> <input type="hidden" id="{{informacion.Rol}}19" name="{{informacion.Rol}}19" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_19"> <input type="hidden"
-                        id="{{informacion.Rol}}19" name="{{informacion.Rol}}19" value="0"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_19"> <input type="hidden" id="{{informacion.Rol}}19" name="{{informacion.Rol}}19" value="0"> </th>
                 {% endif %}
             </tr>
             {% for numero in Serie %}
             <script type="text/javascript">
                 var checkbox = document.getElementById('{{informacion.Rol}}_{{numero}}');
-                checkbox.addEventListener('change', function () {
+                checkbox.addEventListener('change', function() {
                     if (this.checked) {
                         document.getElementById('{{informacion.Rol}}{{numero}}').value = "1";
                         var valor = document.getElementById('{{informacion.Rol}}{{numero}}').value;
                         alert('checkbox esta seleccionado' + valor);
-                    }
-                    else {
+                    } else {
                         document.getElementById('{{informacion.Rol}}{{numero}}').value = "0";
                         var valor = document.getElementById('{{informacion.Rol}}{{numero}}').value;
                         alert('checkbox esta seleccionado' + valor);
                     }
                 });
             </script>
-            {% endfor %}
-            {% endfor %}
+            {% endfor %} {% endfor %}
         </tbody>
     </table>
     <input type="hidden" class="form-control" name="Funcion" value="Modificar">
-    <button type="button" class="btn B2 col-sm-4 col-form-label" id="btn-Mod_R-F" name="btn-Mod_R-F"
-        onclick="Fun()"> Guardar
+    <button type="button" class="btn B2 col-sm-4 col-form-label" id="btn-Mod_R-F" name="btn-Mod_R-F" onclick="Fun()"> Guardar
         cambios </button>
     <script type="text/javascript">
         function Fun() {
@@ -272,5 +201,8 @@
             formulario.submit();
         }
     </script>
+
 </form>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 {% endblock %}

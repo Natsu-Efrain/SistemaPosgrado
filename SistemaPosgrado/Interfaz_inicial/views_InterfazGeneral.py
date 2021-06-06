@@ -18,10 +18,12 @@ def Registro_U (request):
                 Usser=request.POST["Correo"]
                 Password=request.POST["passwd"]
                 #Se hace validacion de los datos ingresados en el formulario en la base de datos
-                Rol1=Alumno.objects.get(Boleta=Id)
-                if(Rol1.Correo == Usser):
+                alumno=Alumno.objects.get(Boleta=Id)
+                Rol=alumno.Rol
+                if(alumno.Correo == Usser):
                         user = User.objects.create_user(Usser,'',Password)
-                        usuario=Usuario(Usser,Password)
+                        user.first_name = Rol
+                        usuario=Usuario(Usser,Password,Rol)
                         usuario.save()
                         user.save()
                         validacion="Exito"
@@ -30,8 +32,8 @@ def Registro_U (request):
     except:
         try:
                 #Se hace validacion de los datos ingresados en el formulario en la base de datos
-                Rol2=Personal.objects.get(Num_Emp=Id)
-                if(Rol2.Correo == Usser):
+                personal=Personal.objects.get(Num_Emp=Id)
+                if(personal.Correo == Usser):
                         user = User.objects.create_user(Usser,'',Password)
                         usuario=Usuario(Usser,Password)
                         usuario.save()
@@ -53,14 +55,17 @@ def Menu_P_Prof (request):
     return render(request,"Menu P_Prof.html")
 
 def Menu_P_A (request):
-    return render(request,"Menu P_JCE.html")
+    return render(request,"Menu_P_A.html")
 
 def Menu_P_Cor (request):
-    return render(request,"Menu P_A.html")
+    return render(request,"Menu_P_Cor.html")
 
 def Menu_P_Dep (request):
-    return render(request,"Menu P_Dep.html")
+    return render(request,"Menu_P_Dep.html")
 
 def Menu_P_SP (request):
-    return render(request,"Menu P_SP.html")
+    return render(request,"Menu_P_SP.html")
+
+def SideBar (request):
+    return render(request,"SideBar.html")
 

@@ -1,6 +1,7 @@
 body {
     background: url(fondo_escudo.jpg);
     height: 100%;
+    width: 100%;
 }
 
 .R2 {
@@ -20,8 +21,9 @@ body {
 }
 
 .B1 {
-    margin-left: 40%;
+    margin-left: 10%;
     background-color: #672445;
+    width: 300px;
     color: #B595A4;
     border-radius: 20px;
 }
@@ -38,4 +40,14 @@ body {
     border-radius: 20px;
     width: 25%;
     margin-top: 30px;
+}
+
+#inputRol {
+    border-radius: 20px;
+    width: 500px;
+}
+
+.Formato {
+    margin-left: 10%;
+    margin-right: 10px;
 }

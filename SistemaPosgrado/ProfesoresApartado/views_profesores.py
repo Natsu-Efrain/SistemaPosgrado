@@ -30,9 +30,9 @@ def AltaProfesores (request):
             telefono=request.POST["telefono"]
             tipo_A=request.POST["tipo"]
             estado_P="Activo"
-            cargo="Profesor"
+            rol="Profesor"
             #Esta linea es un insert en la tabla personal
-            personal=Personal(Num_Emp=num_Emp,Nombre_P=nombre_P,Apellido_PP=apellido_PP,Apellido_MP=apellido_MP,Tipo_P=tipo_P,Correo_P=correo_P,Calle=calle,Num_Int=num_Int,Num_Ext=num_Ext,Colonia=colonia,Estado=estado,Municipio=municipio,CP=cp,Edad=edad,Sexo=sexo,Telefono=telefono,Tipo_A=tipo_A,Estado_P=estado_P,Cargo=cargo)
+            personal=Personal(Num_Emp=num_Emp,Nombre_P=nombre_P,Apellido_PP=apellido_PP,Apellido_MP=apellido_MP,Tipo_P=tipo_P,Correo_P=correo_P,Calle=calle,Num_Int=num_Int,Num_Ext=num_Ext,Colonia=colonia,Estado=estado,Municipio=municipio,CP=cp,Edad=edad,Sexo=sexo,Telefono=telefono,Tipo_A=tipo_A,Estado_P=estado_P,Rol=rol)
             personal.save()
             validacion="Exito"
     except:
