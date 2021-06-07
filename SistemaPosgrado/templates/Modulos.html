@@ -1,93 +1,39 @@
 {% extends "Plantilla.html" %} {% load static %} {% block Estilos %}
-<link rel="stylesheet" href="{% static 'css/estilos_modulos.css' %}"> {% endblock %} {% block Titulo %}
+<link rel="stylesheet" href="{% static 'css/estilos_modulos.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+{% endblock %} {% block Titulo %}
 <title>Sistema Posgrado</title>
 {% endblock %} {% block Pantalla %}
 <!-- Modulos Efrain  -->
-<p>{{ user.username|upper }}</p>
 <form id="Usr" name="Usr" method="POST">
     {% csrf_token %}
     <input type="hidden" id="Funcion" name="Funcion">
+    <input type="hidden" value="{{user.username}}" name="Prueba">
     <div class="Modulos">
+        {% for Rol in Roles %}
         <div class="Alumnos">
             <div class="M">
                 <div class="card-body justify-content-center">
-                    <img id="img-alumno" src="{% static 'assets/images/img_alumno.png' %}" alt="Login">
+                    <img id="img-alumno" src="{% static 'assets/images/Menu.png' %}" alt="Login">
                     <div class="d-flex justify-content-center">
-                        <input type="button" onclick="EnviarA('{{user.first_name}}')" class="btn login_btn" value="Alumno">
-                        <input type="hidden" value="{{user.username}}" name="Prueba">
+                        <input type="button" id="{{Rol.Rol|cut:' '}}" class="btn login_btn" value="{{Rol.Rol}}">
                         <script type="text/javascript">
-                            function EnviarA(rol) {
-                                if (rol == "Alumno") {
+                            $("#{{user.first_name|cut:' '}}").click(function() {
+                                rol = document.getElementById("{{user.first_name|cut:' '}}").value;
+                                if (rol == '{{Rol.Rol}}') {
                                     document.getElementById('Funcion').value = "CargarPagina";
                                     var formulario = document.Usr;
                                     formulario.action = "/Menu_P_A/";
                                     formulario.submit();
-                                } else {
-                                    alert("Losiento no puedes acceder a esta apartado debido a que tu rol es de " + rol);
                                 }
-                            }
+                            });
                         </script>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="Dep_posgrado">
-            <div class="M">
-                <div class="card-body justify-content-center">
-                    <img id="img-alumno" src="{% static 'assets/images/posgrado.png' %}" alt="Login">
-                    <div class="d-flex justify-content-center">
-                        <a href="/Menu_P_Dep/" class="btn login_btn">Departamento progrado</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="Gestion">
-            <div class="M">
-                <div class="card-body justify-content-center">
-                    <img id="img-alumno" src="{% static 'assets/images/carpeta.png' %}" alt="Login">
-                    <div class="d-flex justify-content-center">
-                        <a href="/Menu_P_JCE/" class="btn login_btn">Gestión escolar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="Coordinadores">
-            <div class="M">
-                <div class="card-body justify-content-center">
-                    <img id="img-alumno" src="{% static 'assets/images/reunion.png' %}" alt="Login">
-                    <div class="d-flex justify-content-center">
-                        <a href="/Menu_P_Prof/" class="btn login_btn">Coordinadores de posgrado/Profesores</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="Sepi">
-            <div class="M">
-                <div class="card-body justify-content-center">
-                    <img id="img-alumno" src="{% static 'assets/images/recepcionista.png' %}" alt="Login">
-                    <div class="d-flex justify-content-center">
-                        <a href="/Menu_P_SP/" class="btn login_btn">Jefatura de SEPI</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="Admin">
-            <div class="M">
-                <div class="card-body justify-content-center">
-                    <img id="img-alumno" src="{% static 'assets/images/estructura.png' %}" alt="Login">
-                    <div class="d-flex justify-content-center">
-                        <a href="/Matriz_R-F/" class="btn login_btn">Administración</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </form>
+<script src="{% static 'js/jquery.js' %}"></script>
 {% endblock %}

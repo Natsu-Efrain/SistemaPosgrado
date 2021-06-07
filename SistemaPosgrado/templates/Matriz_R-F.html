@@ -28,13 +28,21 @@
         <span aria-hidden="true" style="font-size:25px">&times;</span>
     </button><strong>¡Fallo!</strong> No registro cambio en la tabla
 </div>
+{% endif %} {% if validacion_3 == 'Fallo' %}
+<div class="alert alert-danger fade in alert-dismissible show">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true" style="font-size:25px">&times;</span>
+    </button><strong>¡Fallo!</strong> No se permite borrar este rol
+</div>
 {% endif %}
 <form action="/Matriz_R-F/" id="Rol" method="POST" value="Rol" name="Rol">
     {% csrf_token %}
+    <input type="hidden" id="Funcion_2" name="Funcion">
+    <input type="hidden" value="{{user.username}}" name="Prueba">
     <div class="form-group row">
         <div class="form-group row R2">
             <div class="Formato"></div>
-            <input type="hidden" class="form-control" id="Funcion_1" name="Funcion">
+            <input type="hidden" class="form-control" id="Funcion_1" name="Funcion_1">
             <input type="text" class="form-control col-sm-2 col-form-label" id="inputRol" placeholder="Ingrese nombre del rol" name="inputRol">
             <button type="button" class="btn B1 col-sm-2 col-form-label" id="btn-Ag_R" onclick="enviarPost(this)"> Agregar
             Rol</button>
@@ -50,12 +58,14 @@
                 if (id == 'btn-Ag_R') {
                     document.getElementById('Funcion_1').value = "Agregar";
                     var prueba = document.getElementById('Funcion').value
+                    document.getElementById('Funcion_2').value = "Matriz";
                     alert(prueba);
                     var formulario = document.Rol;
                     formulario.action = "/Matriz_R-F/";
                     formulario.submit();
                 } else if (id == 'btn-Quit_R') {
                     alert('Todo correcto');
+                    document.getElementById('Funcion_2').value = "Matriz";
                     document.getElementById('Funcion_1').value = "Eliminar";
                     var formulario = document.Rol;
                     formulario.action = "/Matriz_R-F/";
@@ -67,6 +77,8 @@
 </form>
 <form action="/Matriz_R-F/" class="R" id="Matriz" method="POST" name="Matriz" value="Matriz">
     {% csrf_token %}
+    <input type="hidden" id="Funcion_M" name="Funcion">
+    <input type="hidden" value="{{user.username}}" name="Prueba">
     <table class="table table-bordered table-hover R2" id="T_Kar">
         <thead class="T1 text-center">
             <tr>
@@ -193,13 +205,16 @@
             {% endfor %} {% endfor %}
         </tbody>
     </table>
-    <input type="hidden" class="form-control" name="Funcion" value="Modificar">
+    <input type="hidden" class="form-control" name="Funcion_1" value="Modificar">
     <button type="button" class="btn B2 col-sm-4 col-form-label" id="btn-Mod_R-F" name="btn-Mod_R-F" onclick="Fun()"> Guardar
         cambios </button>
     <script type="text/javascript">
         function Fun() {
             console.info("inicio validacion del form>>");
             console.info("fin  validacion del form<<");
+            var prueba = document.getElementById('Funcion').value
+            document.getElementById('Funcion_M').value = "Matriz";
+            alert(prueba);
             var formulario = document.Matriz;
             formulario.action = "/Matriz_R-F/";
             formulario.submit();
