@@ -1,6 +1,4 @@
-{% extends "Plantilla.html" %}
-{% load static %}
-{% block Estilos %}
+{% extends "Plantilla.html" %} {% load static %} {% block Estilos %}
 
 <head>
     <meta charset="UTF-8">
@@ -13,28 +11,25 @@
     <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </head>
-{% endblock %}
-{% block Titulo %}<title>BajaProfesores</title>{% endblock %}
-{% block MenuDerecha %}
-{% include "SideBar.html" %}
-{% endblock %}
-{% block Pantalla %}
-{% if validacion == 'Exito' %}
-    <div class="alert alert-success fade in alert-dismissible show">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+{% endblock %} {% block Titulo %}
+<title>BajaProfesores</title>{% endblock %} {% block MenuDerecha %} {% include "SideBar.html" %} {% endblock %} {% block Pantalla %} {% if validacion == 'Exito' %}
+<div class="alert alert-success fade in alert-dismissible show">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true" style="font-size:25px">&times;</span>
         </button><strong>¡Exito!</strong> El profesor ha sido dado de bajo
-    </div>
-    {% elif validacion == 'Fallo' %}
-    <div class="alert alert-danger fade in alert-dismissible show">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+</div>
+{% elif validacion == 'Fallo' %}
+<div class="alert alert-danger fade in alert-dismissible show">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true" style="font-size:25px">&times;</span>
         </button><strong>¡Fallo!</strong> El profesor no esta registrado
-    </div>
+</div>
 {% endif %}
 <div class="der">
-    <form action="/BajaProfesores/" class="R" method="POST">
+    <form action="/BajaProfesores/" class="R" method="POST" id="Modificar" name="Modificar">
         {% csrf_token %}
+        <input type="hidden" id="Funcion_1" name="Funcion">
+        <input type="hidden" value="{{user.username}}" name="Prueba">
         <div class="form-group row R2">
             <label for="Numero de empleado" class="col-sm-1 col-form-label">Número de empleado</label>
             <input type="number" class="form-control col-sm-4 R3" id="numero_empleado" placeholder="1-2-3..." name="numero_empleado">
@@ -64,7 +59,15 @@
                 <input type="text" class="col-sm-4 R3" id="Mun_A">
             </div>
             -->
-        <button type="submit" class="btn B1 " id="btn-Re_Al"> Dar de baja </button>
+        <button type="button" class="btn B1 " id="btn-Re_Al" onclick="EnviarPOTS()"> Dar de baja </button>
+        <script type="text/javascript">
+            function EnviarPOTS() {
+                document.getElementById('Funcion_1').value = "Modificar";
+                var formulario = document.Modificar;
+                formulario.action = "/BajaProfesores/";
+                formulario.submit();
+            }
+        </script>
     </form>
 </div>
 </section>

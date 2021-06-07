@@ -32,7 +32,8 @@ urlpatterns = [
     #Vistas del apartado de Interfaz Inicial
     path('accounts/login/', LoginView.as_view(template_name='Login.html'),name='login'),
     path('Logout',logout_then_login,name='logout'),
-    path('Modulos/', login_required(views_InterfazGeneral.Modulos), name='Modulos'),
+    #path('Modulos/', login_required(views_InterfazGeneral.Modulos), name='Modulos'),
+    path('Modulos/', views_InterfazGeneral.Modulos, name='Modulos'),
     path('Registro_U/',views_InterfazGeneral.Registro_U),
     path('Menu_P_JCE/',views_InterfazGeneral.Menu_P_JCE),
     path('Menu_P_Prof/',views_InterfazGeneral.Menu_P_Prof),

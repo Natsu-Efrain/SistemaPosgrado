@@ -34,7 +34,7 @@
     <div class="form-group row">
         <div class="form-group row R2">
             <div class="Formato"></div>
-            <input type="hidden" class="form-control" id="Funcion" name="Funcion">
+            <input type="hidden" class="form-control" id="Funcion_1" name="Funcion">
             <input type="text" class="form-control col-sm-2 col-form-label" id="inputRol" placeholder="Ingrese nombre del rol" name="inputRol">
             <button type="button" class="btn B1 col-sm-2 col-form-label" id="btn-Ag_R" onclick="enviarPost(this)"> Agregar
             Rol</button>
@@ -48,12 +48,15 @@
                 console.info("fin  validacion del form<<");
                 let id = comp.id;
                 if (id == 'btn-Ag_R') {
-                    document.getElementById('Funcion').value = "Agregar";
+                    document.getElementById('Funcion_1').value = "Agregar";
+                    var prueba = document.getElementById('Funcion').value
+                    alert(prueba);
                     var formulario = document.Rol;
                     formulario.action = "/Matriz_R-F/";
                     formulario.submit();
                 } else if (id == 'btn-Quit_R') {
-                    document.getElementById('Funcion').value = "Eliminar";
+                    alert('Todo correcto');
+                    document.getElementById('Funcion_1').value = "Eliminar";
                     var formulario = document.Rol;
                     formulario.action = "/Matriz_R-F/";
                     formulario.submit();
@@ -87,6 +90,7 @@
                 <th scope="col"> Dar de baja Unidades de Aprendizaje </th>
                 <th scope="col"> Generar constancias de inscripción con promedio global </th>
                 <th scope="col"> Generar SIP-8BIS </th>
+
             </tr>
         </thead>
         <tbody>
@@ -132,7 +136,7 @@
                 {% endif %} {% if informacion.Consultar_alumnos_graduados_y_activos == '1' %}
                 <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_10" checked> <input type="hidden" id="{{informacion.Rol}}10" name="{{informacion.Rol}}10" value="1"> </th>
                 {% else %}
-                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_10>"> <input type="hidden" id="{{informacion.Rol}}10" name="{{informacion.Rol}}10" value="0"> </th>
+                <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_10"> <input type="hidden" id="{{informacion.Rol}}10" name="{{informacion.Rol}}10" value="0"> </th>
                 {% endif %} {% if informacion.Cargar_documentos_de_expediente_académico == '1' %}
                 <th scope="col"> <input type="checkbox" class="R3" id="{{informacion.Rol}}_11" checked> <input type="hidden" id="{{informacion.Rol}}11" name="{{informacion.Rol}}11" value="1"> </th>
                 {% else %}

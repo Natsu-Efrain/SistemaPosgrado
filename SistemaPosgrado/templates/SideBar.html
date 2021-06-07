@@ -1,47 +1,291 @@
 {% load static %}
-<nav class="sidebar navbar-expand-lg">
-    <div class="container-fluid">
-        <!-- Para hacer el Menu en un solo boton al ser pequeña la pantalla -->
-        <button class="navbar-toggler B1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<form id="Usr" name="Usr" method="POST">
+    {% csrf_token %}
+    <input type="hidden" id="Funcion" name="Funcion">
+    <input type="hidden" value="{{user.username}}" name="Prueba">
+    <nav class="sidebar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Para hacer el Menu en un solo boton al ser pequeña la pantalla -->
+            <button class="navbar-toggler B1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon B1"></span>
       </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav">
-                <ul class="M1">
-                    <li>
-                        <a href="#" class="alumnos-btn">Alumnos &nbsp<span class="icon-down-open"></span></a>
-                        <ul class="alumnos-show">
-                            <li><a href="/Reg_Alum/">Inscripción</a></li>
-                            <li><a href="/Reinscripcion/">Reinscripción</a></li>
-                            <li><a href="/Registro_Calificaciones/">Registrar Calificaciones </a></li>
-                            <li><a href="/Calificacion_Alumno/">Consultar Calificaciones </a></li>
-                            <li><a href="/Sol_Col_P/">Solicitudes al Colegio</a></li>
-                            <li><a href="/Rep_Tu/">Respuesta a Solicitudes al Colegio</a></li>
-                            <li><a href="/Rep_Tu/">Comité Tutorial</a></li>
-                            <li><a href="/Reg_Alum/">Consultar Alumnos </a></li>
-                            <li><a href="/Expediente/">Expediente Académico </a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="profesor-btn">Profesor &nbsp<span class="icon-down-open"></span></a>
-                        <ul class="profesor-show">
-                            <li><a href="/AltaProfesores/">Alta de Profesor</a></li>
-                            <li><a href="/BajaProfesores/">Baja de Profesor</a></li>
-                            <li><a href="/AsignarU-P/">Asignar Unidades </a></li>
-                            <li><a href="/Actas/">Actas</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="unidades-btn">Unidades &nbsp<span class="icon-down-open"></span></a>
-                        <ul class="unidades-show">
-                            <li><a href="/AltaUnidades/">Alta de Unidad</a></li>
-                            <li><a href="/BajaUnidades/">Baja de Unidad</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/Formatos/">Formatos</a></li>
-                    <li><a href="/Matriz_R-F/">Administración</a></li>
-                </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav">
+                    <ul class="M1">
+                        <li>
+                            <a href="#" class="alumnos-btn">Alumnos &nbsp<span class="icon-down-open"></span></a>
+                            <ul class="alumnos-show">
+                                <li>
+                                    <a href="#" onclick="EnviarI()" value="Inscripción">Inscripción</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarI() {
+                                        if ('{{p1}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/Reg_Alum/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                                <li>
+                                    <a href="#" onclick="EnviarR()" value="Reinscripcion">Reinscripcion</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarR() {
+                                        if ('{{p2}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/Reinscripcion/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                                <li>
+                                    <a href="#" onclick="EnviarRC()" value="Registrar">Registrar</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarRC() {
+                                        if ('{{p3}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/Registro_Calificaciones/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                                <li>
+                                    <a href="#" onclick="EnviarC()" value="Consultar calificaciones">Consultar calificaciones</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarC() {
+                                        if ('{{p4}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            //Agregar if
+                                            formulario.action = "/Calificacion_Alumno/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                                <li>
+                                    <a href="#" onclick="EnviarSC()" value="Solicitudes al colegio">Solicitudes al colegio</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarSC() {
+                                        if ('{{p5}}' == "1" || '{{p7}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/Sol_Col_P/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                                <li>
+                                    <a href="#" onclick="EnviarRSC()" value="Respuesta a solicitudes al colegio">Respuesta a solicitudes al colegio</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarRSC() {
+                                        if ('{{p6}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/Sol_Col_P/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                                <li>
+                                    <a href="#" onclick="EnviarCT()" value="Comité Tutorial">Comité Tutorial</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarCT() {
+                                        if ('{{p8}}' == "1" || '{{p9}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/Rep_Tu/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                                <li>
+                                    <a href="#" onclick="EnviarCA()" value="Consultar alumnos">Consultar alumnos</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarCA() {
+                                        if ('{{p10}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/Est_Al/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                                <li>
+                                    <a href="#" onclick="EnviarEA()" value="Expediente Académico">Expediente Académico</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarEA() {
+                                        if ('{{p11}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/Est_Al/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="profesor-btn">Profesor &nbsp<span class="icon-down-open"></span></a>
+                            <ul class="profesor-show">
+                                <li>
+                                    <a href="#" onclick="EnviarAP()" value="Alta de profesor">Alta de profesor</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarAP() {
+                                        if ('{{p12}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/AltaProfesores/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                                <li>
+                                    <a href="#" onclick="EnviarBP()" value="Baja de profesor">Baja de profesor</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarBP() {
+                                        if ('{{p13}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/BajaProfesores/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                                <li>
+                                    <a href="#" onclick="EnviarAU()" value="Asignar Unidades">Asignar Unidades</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarAU() {
+                                        if ('{{p14}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/AsignarU-P/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                                <li>
+                                    <a href="#" onclick="EnviarACT()" value="Actas">Actas</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarACT() {
+                                        if ('{{p15}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/Actas/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="unidades-btn">Unidades &nbsp<span class="icon-down-open"></span></a>
+                            <ul class="unidades-show">
+                                <li>
+                                    <a href="#" onclick="EnviarATU()" value="Alta de unidad">Alta de unidad</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarATU() {
+                                        if ('{{p16}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/AltaUnidades/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                                <li>
+                                    <a href="#" onclick="EnviarABT()" value="Baja de unidad">Baja de unidad</a>
+                                </li>
+                                <script type="text/javascript">
+                                    function EnviarABT() {
+                                        if ('{{p17}}' == "1") {
+                                            document.getElementById('Funcion').value = "CargarPagina";
+                                            var formulario = document.Usr;
+                                            formulario.action = "/BajaUnidades/";
+                                            formulario.submit();
+                                        } else {
+                                            alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                        }
+                                    }
+                                </script>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" onclick="EnviarF()" value="Formatos">Formatos</a>
+                        </li>
+                        <script type="text/javascript">
+                            function EnviarF() {
+                                if ('{{p18}}' == "1" || '{{p19}}' == "1") {
+                                    document.getElementById('Funcion').value = "CargarPagina";
+                                    var formulario = document.Usr;
+                                    formulario.action = "/Formatos/";
+                                    formulario.submit();
+                                } else {
+                                    alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                }
+                            }
+                        </script>
+                        <li>
+                            <a href="#" onclick="EnviarADM()" value="Administración">Administración</a>
+                        </li>
+                        <script type="text/javascript">
+                            function EnviarADM() {
+                                if ('{{user.first_name}}' == "Departamento de Posgrado") {
+                                    document.getElementById('Funcion').value = "CargarPagina";
+                                    var formulario = document.Usr;
+                                    formulario.action = "/Matriz_R-F/";
+                                    formulario.submit();
+                                } else {
+                                    alert("Losiento no tienes los permisos para realizar dicha acción ");
+                                }
+                            }
+                        </script>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</form>
