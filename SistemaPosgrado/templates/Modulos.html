@@ -1,5 +1,5 @@
 {% extends "Plantilla.html" %} {% load static %} {% block Estilos %}
-<link rel="stylesheet" href="{% static 'css/estilos_modulos.css' %}">
+<link rel="stylesheet" href="{% static 'css/Modulos.css' %}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 {% endblock %} {% block Titulo %}
 <title>Sistema Posgrado</title>
@@ -10,29 +10,35 @@
     <input type="hidden" id="Funcion" name="Funcion">
     <input type="hidden" value="{{user.username}}" name="Prueba">
     <div class="Modulos">
-        {% for Rol in Roles %}
-        <div class="Alumnos">
-            <div class="M">
-                <div class="card-body justify-content-center">
-                    <img id="img-alumno" src="{% static 'assets/images/Menu.png' %}" alt="Login">
-                    <div class="d-flex justify-content-center">
-                        <input type="button" id="{{Rol.Rol|cut:' '}}" class="btn login_btn" value="{{Rol.Rol}}">
-                        <script type="text/javascript">
-                            $("#{{user.first_name|cut:' '}}").click(function() {
-                                rol = document.getElementById("{{user.first_name|cut:' '}}").value;
-                                if (rol == '{{Rol.Rol}}') {
-                                    document.getElementById('Funcion').value = "CargarPagina";
-                                    var formulario = document.Usr;
-                                    formulario.action = "/Menu_P_A/";
-                                    formulario.submit();
-                                }
-                            });
-                        </script>
+        <div class="container">
+            <div class="row">
+                {% for Rol in Roles %}
+                <div class="col-sm">
+                    <div class="Alumnos">
+                        <div class="M">
+                            <div class="card-body justify-content-center">
+                                <img id="img-alumno" src="{% static 'assets/images/Menu.png' %}" alt="Login">
+                                <div class="d-flex justify-content-center">
+                                    <input type="button" id="{{Rol.Rol|cut:' '}}" class="btn login_btn" value="{{Rol.Rol}}">
+                                    <script type="text/javascript">
+                                        $("#{{user.first_name|cut:' '}}").click(function() {
+                                            rol = document.getElementById("{{user.first_name|cut:' '}}").value;
+                                            if (rol == '{{Rol.Rol}}') {
+                                                document.getElementById('Funcion').value = "CargarPagina";
+                                                var formulario = document.Usr;
+                                                formulario.action = "/Menu_P_A/";
+                                                formulario.submit();
+                                            }
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
-        {% endfor %}
     </div>
 </form>
 <script src="{% static 'js/jquery.js' %}"></script>

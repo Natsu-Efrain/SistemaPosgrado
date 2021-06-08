@@ -1,61 +1,31 @@
-{% extends "Plantilla.html" %}
-{% load static %}
-{% block Estilos %}
+{% extends "Plantilla.html" %} {% load static %} {% block Estilos %}
 <!-- Hola soy Dani. -->
 <link rel="stylesheet" href="{% static 'css/estilos_Altas_Bajas Profesores.css' %}">
-<head>
-  <meta charset="UTF-8">
-  <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Actas</title>
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/estilos_actas.css' %}">
-  <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
-  <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
-</head>
-{% endblock %}
-{% block Titulo %}<title>Actas</title>{% endblock %}
-{% block MenuDerecha %}
-{% include "SideBar.html" %}
-{% endblock %}
-{% block Pantalla %}
-     <!--Funcionalidades-->
-     <div class="col-md-10">
-        <div class="card-body justify-content-center">
-          <form>
-            <label id="Text_profesor">@Profesor</label>
-            
-            <table class="table table-bordered table-hover R2" id="T_Kar">
-              <thead class="T1 text-center">
-                <tr class="tabla_color" >
-              
-                  <th>Unidades a Impartir	</th>
-                  <th>Acta de Calificaciones</th>
-                 
-                </tr>
-              
-                <tr>
-              
-                  <td></td>
-                  <td></td>
-                </tr>
-              
-                <tr>
-              
-                  <td></td>
-                  <td></td>
-              
-                 
-              
-                </tr>
-               
 
-
-              </tbody>
-            </table>
-            
-          </form>
-        </div>
-    </div>
-    {% endblock %}
+<meta charset="UTF-8">
+<!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/estilos_actas.css' %}"> {% endblock %} {% block Titulo %}
+<title>Actas</title>{% endblock %} {% block MenuDerecha %} {% include "SideBar.html" %} {% endblock %} {% block Pantalla %}
+<form action="" class="R" id="Actas_Prof">
+    <p><label for="Alumno"> Profesor: @Profesor </label></p>
+    <p><label for="Posgrado"> Numero de Empleado: @Numero  </label></p>
+    <table class="table table-bordered table-hover R2" id="Actas">
+        <thead class="T1 text-center">
+            <tr>
+                <th scope="col" class="col-md-6">Unidad a Impartir</th>
+                <th scope="col" class="col-md-6">Acta de Calificaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock %}

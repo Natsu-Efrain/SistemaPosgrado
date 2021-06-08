@@ -1,26 +1,13 @@
 {% extends "Plantilla.html" %} {% load static %} {% block Estilos %}
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/fontello.css">
-    <link rel="stylesheet" href="css/Encabezado.css">
-    <link rel="stylesheet" href="css/Sol_Col_A.css"> {% endblock %} {% block Titulo %}
-    <title> Solicitudes al Colegio </title>{% endblock %} {% block MenuDerecha %} {% include "SideBar.html" %} {% endblock %} {% block Pantalla %}
-</head>
-
-<body>
-    <form action="" class="R" id="Sol_Col_Prof">
-        <div class="form-group row R2">
-            <label for="Ti_Sol_P" class="col-sm-2 col-form-label">Tipo de Solicitud</label>
-            <select class="form-control col-sm-9 R3" id="Ti_Sol_P">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/Sol_Col_A.css' %}"> {% endblock %} {% block Titulo %}
+<title> Solicitudes al Colegio </title>{% endblock %} {% block MenuDerecha %} {% include "SideBar.html" %} {% endblock %} {% block Pantalla %}
+<form action="" class="R" id="Sol_Col_Prof">
+    <div class="form-group row R2">
+        <label for="Ti_Sol_P" class="col-sm-2 col-form-label">Tipo de Solicitud</label>
+        <select class="form-control col-sm-9 R3" id="Ti_Sol_P">
                   <option class="is-invalid"> ... </option>
                   <option value="1"> Solicitud de registro de tema tesis y Designación de Director </option>
                   <option value="2"> Solicitud de registro de tema tesis y Designación de dos Directores </option>
@@ -40,50 +27,41 @@
                   <option value="16"> Solicitud de reposición de credencial digitalizada </option>
                   <option value="17"> Carta cesión de derechos </option>
                 </select>
+    </div>
+    <div class="form-group row R2">
+        <div class="custom-file col-md-8 ">
+            <input id="Sol_Col_P" type="file" class="custom-file-input" onchange="this.nextElementSibling.innerText = this.files[0].name">
+            <label for="Sol_Col_P" class="custom-file-label text-truncate R3">Elige Archivo...</label>
         </div>
-        <div class="form-group row R2">
-            <div class="custom-file col-md-8 ">
-                <input id="Sol_Col_P" type="file" class="custom-file-input" onchange="this.nextElementSibling.innerText = this.files[0].name">
-                <label for="Sol_Col_P" class="custom-file-label text-truncate R3">Elige Archivo...</label>
-            </div>
-            <div class="col-md-4">
-                <button type="submit" class="btn B1" id="btn-Car_Sol_Prof"> Cargar </button>
-            </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn B1" id="btn-Car_Sol_Prof"> Cargar </button>
         </div>
-    </form>
-    <!-- Tabla de Consulta a Solicitud -->
-    <table class="table table-bordered table-hover R R4" id="TC_Sol_P">
-        <thead class="T1 text-center">
-            <tr>
-                <th scope="col">Folio</th>
-                <th scope="col">Solicitud</th>
-                <th scope="col">Periodo</th>
-                <th scope="col">Fecha de Solicitud</th>
-                <th scope="col">Estatus</th>
-                <th scope="col">Respuesta</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="col"> </th>
-                <th scope="col"> </th>
-                <th scope="col"> </th>
-                <th scope="col"> </th>
-                <th scope="col"> </th>
-                <th scope="col"> </th>
-            </tr>
-        </tbody>
-    </table>
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="js/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-        -->
-</body>
+    </div>
+</form>
+<!-- Tabla de Consulta a Solicitud -->
+<table class="table table-bordered table-hover R R4" id="TC_Sol_P">
+    <thead class="T1 text-center">
+        <tr>
+            <th scope="col">Folio</th>
+            <th scope="col">Solicitud</th>
+            <th scope="col">Periodo</th>
+            <th scope="col">Fecha de Solicitud</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Respuesta</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+        </tr>
+    </tbody>
+</table>
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 {% endblock %}

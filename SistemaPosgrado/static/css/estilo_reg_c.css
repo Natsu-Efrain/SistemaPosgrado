@@ -1,0 +1,64 @@
+body {
+    background-image: url('../assets/images/fondo_bolitas.jpg');
+    height: 100%;
+}
+
+.input-login {
+    border: 1px solid rgba(0, 0, 0, 0.72);
+    box-sizing: border-box;
+    border-radius: 30px;
+    background-color: transparent;
+    height: 27px;
+}
+
+.R2 {
+    margin-top: 30px;
+    width: 650px;
+}
+
+.R5 {
+    width: 300px;
+    height: 25px;
+    border: 1px solid #000;
+    border-radius: 30px;
+}
+
+.Tex_Unidad {
+    margin-top: 40px;
+}
+
+.table-bordered {
+    margin-top: 65px;
+    border: 1px solid #dee2e6;
+}
+
+.T1 {
+    background-color: #672445;
+    color: #B595A4;
+    border: 10px;
+}
+
+.card-body {
+    width: 500px;
+    margin-left: 430px;
+    margin-top: 160px;
+}
+
+.reg_btn {
+    color: #B595A4;
+    background-color: #8D2556;
+    width: 175px;
+    border-radius: 50px;
+    margin-left: 220px;
+    margin-top: 85px;
+}
+
+.reg_btn:hover {
+    color: #B595A4;
+    background-color: rgba(141, 37, 86, 0.78);
+}
+
+#Cali {
+    width: 175px;
+    margin-left: 29%;
+}

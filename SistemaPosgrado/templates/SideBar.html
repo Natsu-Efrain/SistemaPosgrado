@@ -68,9 +68,16 @@
                                         if ('{{p4}}' == "1") {
                                             document.getElementById('Funcion').value = "CargarPagina";
                                             var formulario = document.Usr;
-                                            //Agregar if
-                                            formulario.action = "/Calificacion_Alumno/";
-                                            formulario.submit();
+                                            if ('{{user.first_name}}' == 'Profesor') {
+                                                formulario.action = "/Calificacion_Profesores/";
+                                                formulario.submit();
+                                            } else if ('{{user.first_name}}' == 'Alumno') {
+                                                formulario.action = "/Calificacion_Alumno/";
+                                                formulario.submit();
+                                            } else {
+                                                formulario.action = "/Calificacion_JCE/";
+                                                formulario.submit();
+                                            }
                                         } else {
                                             alert("Losiento no tienes los permisos para realizar dicha acción ");
                                         }
@@ -144,7 +151,7 @@
                                         if ('{{p11}}' == "1") {
                                             document.getElementById('Funcion').value = "CargarPagina";
                                             var formulario = document.Usr;
-                                            formulario.action = "/Est_Al/";
+                                            formulario.action = "/Expediente/";
                                             formulario.submit();
                                         } else {
                                             alert("Losiento no tienes los permisos para realizar dicha acción ");

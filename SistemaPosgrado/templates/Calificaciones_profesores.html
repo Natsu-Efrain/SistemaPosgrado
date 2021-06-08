@@ -1,82 +1,43 @@
-{% extends "Plantilla.html" %}
-{% load static %}
-{% block Estilos %}
-    <meta charset="UTF-8">
-    <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calificaciones Profesores</title>
-    <link rel="stylesheet" href="{% static 'css/estilos_calificaciones.css' %}">
+{% extends "Plantilla.html" %} {% load static %} {% block Estilos %}
+<meta charset="UTF-8">
+<!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calificaciones Profesores</title>
+<link rel="stylesheet" href="{% static 'css/Calificaciones.css' %}"> {% endblock %} {% block Titulo %}
+<title>Calificaciones</title>{% endblock %} {% block MenuDerecha %} {% include "SideBar.html" %} {% endblock %} {% block Pantalla %}
+<!--Funcionalidades-->
+<form action="" class="R" id="Cal_Prof">
+    <p><label for="Alumno"> Profesor: @Profesor </label></p>
+    <p><label for="Posgrado"> Numero de Empleado: @Numero  </label></p>
+    <table class="table table-bordered table-hover R2" id="Cal_Prof">
+        <thead class="T1 text-center">
+            <tr>
+                <th scope="col" rowspan="2">Grupo</th>
+                <th scope="col" rowspan="2">Unidad</th>
+                <th scope="col" rowspan="2">Alumno</th>
+                <th scope="col" rowspan="2">Boleta</th>
+                <th scope="col" colspan="4">Calificación</th>
+            </tr>
+            <tr>
+                <th scope="col"> 1er </th>
+                <th scope="col"> 2do </th>
+                <th scope="col"> 3er </th>
+                <th scope="col"> Final </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="btn B2" id="btn-Report_Cal_Prof"> Reporte </button>
+</form>
 {% endblock %}
-{% block Titulo %}<title>Calificaciones</title>{% endblock %}
-{% block MenuDerecha %}
-{% include "SideBar.html" %}
-{% endblock %}
-{% block Pantalla %}
-     <!--Funcionalidades-->
-     <div class="col-md-10">
-        <div class="card-body justify-content-center">
-          <form>
-            <div>
-            <label>Boleta: @Boleta</label>
-          </div>
-          <div>
-            <label id="Text_profesor">Alumno: @Alumno</label>
-          </div>
-            <table class="table table-bordered table-hover R2" id="T_Kar">
-              <thead class="T1 text-center">
-                <tr class="tabla_color" >
-
-                  <th scope="col">Unidad</th>
-              
-                  <th>1er Parcial	</th>
-                  <th>2do Parcia</th>
-                  <th>3er Parcia</th>
-                  <th>Final</th>
-                </tr>
-              
-                <tr>
-              
-                  <td>10 </td>
-              
-                  <td>9</td>
-              
-                  <td></td>
-              
-                  <td></td>
-                  <td></td>
-              
-                </tr>
-              
-                <tr>
-              
-                  <td>8</td>
-              
-                  <td>6</td>
-              
-                  <td></td>
-              
-                  <td></td>
-                  <td></td>
-              
-                </tr>
-                <tr>
-              
-                  <td>9</td>
-              
-                  <td>9</td>
-              
-                  <td></td>
-              
-                  <td></td>
-                  <td></td>
-              
-                </tr>
-              </tbody>
-            </table>
-            <div>
-              <input id="boton_registrar" type="submit" value="Kardex" class="btn  reg_btn">
-            </div>
-          </form>
-        </div>
-    </div>
-    {% endblock %}

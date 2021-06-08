@@ -2,8 +2,7 @@
 <meta charset="UTF-8">
 <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{% static 'js/JavaScripGeneral.js' %}">
-<link rel="stylesheet" href="{% static 'css/Matriz_R.css' %}"> {% endblock %} {% block Titulo %}
+<link rel="stylesheet" href="{% static 'css/Matriz.css' %}"> {% endblock %} {% block Titulo %}
 <title> Asignacion de Funciones a Roles </title>{% endblock %} {% block MenuDerecha %} {% include "SideBar.html" %} {% endblock %} {% block Pantalla %} {% if validacion == 'Exito' %}
 <div class="alert alert-success fade in alert-dismissible show">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -79,7 +78,7 @@
     {% csrf_token %}
     <input type="hidden" id="Funcion_M" name="Funcion">
     <input type="hidden" value="{{user.username}}" name="Prueba">
-    <table class="table table-bordered table-hover R2" id="T_Kar">
+    <table class="table table-bordered table-hover R2 table-responsive" id="T_Kar">
         <thead class="T1 text-center">
             <tr>
                 <th scope="col"> </th>

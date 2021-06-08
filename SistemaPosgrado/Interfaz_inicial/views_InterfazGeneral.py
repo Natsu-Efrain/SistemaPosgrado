@@ -5,6 +5,8 @@ from ProfesoresApartado.models_personal import Personal
 from django.contrib.auth.models import User
 from SistemaPosgrado.funciones import CargarPermisos
 from AdminApartado.models_admin import Rol
+from django.core.mail import send_mail
+from django.conf import settings
 from django.core import serializers
 # Create your views here.
 #Metodo de vizualización de Modulos
@@ -52,7 +54,21 @@ def Registro_U (request):
     return render(request,"registro_usuarios.html",{'validacion':validacion})
 
 def Recuperar_contraseña (request):
-    return render(request,"recuperar_contraseña.html")
+    validacion=" "
+    if(request.method == "POST"):
+        try:
+            correo = request.POST["Correo"]
+            user = Usuario.objects.get(Usuario=correo)
+            subject = "Recuperación de contraseña"
+            message = "Su contraseña es: " + user.Contraseña
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list =[correo]
+            send_mail(subject,message,email_from,recipient_list)
+            validacion="Exito"
+        except:
+            validacion="Fallo"
+    return render(request,"recuperar_contraseña.html",{'validacion':validacion})
+    
 
 def Menu_P_JCE (request):
     return render(request,"Menu P_JCE.html")

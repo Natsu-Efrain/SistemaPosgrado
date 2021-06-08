@@ -1,5 +1,5 @@
 body {
-    background: url(fondo_bolitas.jpg);
+    background: url(fondo_escudo.jpg);
     height: 100%;
 }
 
@@ -11,22 +11,13 @@ body {
 }
 
 .R2 {
-    margin-top: 30px;
-    font-family: 'Roboto';
+    margin-top: 50px;
 }
 
 .R3 {
     border-radius: 50px;
     margin-left: 2%;
     border: 1px solid #000;
-    height: 27px;
-}
-
-.R4 {
-    border-radius: 50px;
-    margin-left: 8%;
-    border: 1px solid #000;
-    height: 27px;
 }
 
 .T1 {
@@ -35,10 +26,19 @@ body {
 }
 
 .B1 {
-    margin-left: 40%;
+    margin-left: 5%;
     background-color: #672445;
     color: #B595A4;
     border-radius: 20px;
-    width: 20%;
-    margin-top: 20px;
+    width: auto;
+    margin-top: 10px;
+}
+
+.B2 {
+    margin-left: 35%;
+    background-color: #672445;
+    color: #B595A4;
+    border-radius: 20px;
+    width: 30%;
+    margin-top: 30px;
 }
