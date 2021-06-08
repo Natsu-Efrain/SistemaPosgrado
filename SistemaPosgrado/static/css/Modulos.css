@@ -25,7 +25,7 @@ body {
 }
 
 .M {
-    width: 235px;
+    width: 320px;
     height: 220px;
     background: #7E5764;
     border-radius: 20px;
@@ -38,7 +38,7 @@ body {
 #img-alumno {
     width: 100px;
     height: 100px;
-    margin-left: 40px;
+    margin-left: 86px;
 }
 
 .login_btn {

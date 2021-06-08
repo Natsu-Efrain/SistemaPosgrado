@@ -1,30 +1,16 @@
-{% extends "Plantilla.html" %}
-{% load static %}
-{% block Estilos %}
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+{% extends "Plantilla.html" %} {% load static %} {% block Estilos %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="{% static 'css/reinscripcion.css' %}">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/Reins.css' %}"> {% endblock %} {% block Titulo %}
+<title>Reinscripcion</title>{% endblock %} {% block MenuDerecha %} {% include "SideBar.html" %} {% endblock %} {% block Pantalla %}
 
-    {% endblock %}
-      {% block Titulo %}<title>Reinscripcion</title>{% endblock %}
-      {% block MenuDerecha %}
-      {% include "SideBar.html" %}
-      {% endblock %}
-      {% block Pantalla %}
-  </head>
-  <body>
-        <form action="" class="R" id="Reins_A">
-          <label for="Alumno"> Alumno: @Alumno </label>
-          <div class="form-group row R2">
-            <label for="Unidad_A" class="col-sm-3 col-form-label"> Unidad de Aprendizaje </label>
-            <select class="form-control col-sm-8 R4" id="Unidad_A">
+<form action="" class="R" id="Reins_A">
+    <label for="Alumno"> Alumno: @Alumno </label>
+    <div class="form-group row R2">
+        <label for="Unidad_A" class="col-sm-3 col-form-label"> Unidad de Aprendizaje </label>
+        <select class="form-control col-sm-8 R4" id="Unidad_A">
               <option class="is-invalid"> ... </option>
               <option value=" ">  </option>
               <option value=" ">  </option>
@@ -32,69 +18,61 @@
               <option value=" ">  </option>
               <option value=" ">  </option>
             </select>
-          </div>
-          <!-- Seccion donde se Muestran los Horios y Agrega el alumno -->
-          <table class="table table-bordered table-hover R3" id="T_Agre">
-            <thead class="T1 text-center">
-              <tr>
+    </div>
+    <!-- Seccion donde se Muestran los Horios y Agrega el alumno -->
+    <table class="table table-bordered table-hover R3" id="T_Agre">
+        <thead class="T1 text-center">
+            <tr>
                 <th scope="col">Clave</th>
                 <th scope="col">Unidad</th>
                 <th scope="col">Profesor</th>
                 <th scope="col">Horario</th>
-                <th scope="col">  </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="col">  </th>
-                <th scope="col">   </th>
-                <th scope="col">   </th>
-                <th scope="col">   </th>
-                <th scope="col"> 
-                  <button type="button" class="btn T2" id="btn-agregarU"> 
-                    <span> <img src="Iconos y Visuales/anadir.png" alt="" width="20" height="20"> </span> 
-                  </button> 
+                <th scope="col"> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col">
+                    <button type="button" class="btn T2" id="btn-agregarU"> 
+                    <span> <img src="{% static 'Iconos y Visuales/anadir.png' %}" alt="" width="20" height="20"> </span> 
+                  </button>
                 </th>
-              </tr>
-            </tbody>
-          </table>
-          <!-- Seccion donde se Muestran las Unidades Agregadas y se pueden llegar a quitar -->
-          <table class="table table-bordered table-hover R3" id="T_Mos">
-            <thead class="T1 text-center">
-              <tr>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Seccion donde se Muestran las Unidades Agregadas y se pueden llegar a quitar -->
+    <table class="table table-bordered table-hover R3" id="T_Mos">
+        <thead class="T1 text-center">
+            <tr>
                 <th scope="col">Clave</th>
                 <th scope="col">Unidad</th>
                 <th scope="col">Profesor</th>
                 <th scope="col">Horario</th>
-                <th scope="col">  </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="col">  </th>
-                <th scope="col">   </th>
-                <th scope="col">   </th>
-                <th scope="col">   </th>
-                <th scope="col"> 
-                  <button type="button" class="btn T2" id="btn-quitarU"> 
-                    <span> <img src="Iconos y Visuales/menos.png" alt="" width="20" height="20"> </span> 
-                  </button> 
+                <th scope="col"> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col">
+                    <button type="button" class="btn T2" id="btn-quitarU"> 
+                    <span> <img src="{% static 'Iconos y Visuales/menos.png' %}" alt="" width="20" height="20"> </span> 
+                  </button>
                 </th>
-              </tr>
-            </tbody>
-          </table>
-          <button type="submit" class="btn B1 R3" id="btn-Rein" > Ternminar Reinscripción </button>
-        </form>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="btn B1 R3" id="btn-Rein"> Terminar Reinscripción </button>
+</form>
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-    -->
-  </body>
-  {% endblock %}
+{% endblock %}

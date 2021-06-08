@@ -22,3 +22,4 @@ class Alumno(models.Model):
     Tipo_A=models.CharField(max_length=10)
     Estado_A=models.CharField(max_length=10)
     Semestre=models.CharField(max_length=3)
+    Rol=models.CharField(max_length=100, default=None)

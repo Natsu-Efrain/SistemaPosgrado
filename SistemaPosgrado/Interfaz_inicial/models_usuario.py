@@ -5,4 +5,5 @@ from ProfesoresApartado.models_personal import Personal
 #Codigo para crear la tabla de Usuario
 class Usuario(models.Model):
     Usuario=models.EmailField(max_length=50,primary_key=True)
-    Contraseña=models.CharField(max_length=15)
+    Contraseña=models.CharField(max_length=50)
+    Rol=models.CharField(max_length=100,default=None)

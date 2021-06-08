@@ -1,69 +1,78 @@
-{% extends "Plantilla.html" %}
 {% load static %}
-{% block Estilos %}
-<meta charset="UTF-8">
-<!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/estilos_registro_usuarios.css' %}">
-<link rel="stylesheet" href="{% static 'css/fontello.css' %}">
-<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-{% endblock %}
-{% block Titulo %}<title>Registro de usuarios</title>{% endblock %}
-{% block Pantalla %}
-{% if validacion == 'Exito' %}
-<div class="alert alert-success fade in alert-dismissible show">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/RG_Usuario.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>Registro de usuarios</title>
+</head>
+
+<body>
+    {% if validacion == 'Exito' %}
+    <div class="alert alert-success fade in alert-dismissible show">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true" style="font-size:25px">&times;</span>
   </button><strong>¡Exito!</strong> Se ha registrado con exito el usuario
-</div>
-{% elif validacion == 'Fallo' %}
-<div class="alert alert-danger fade in alert-dismissible show">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    </div>
+    {% elif validacion == 'Fallo' %}
+    <div class="alert alert-danger fade in alert-dismissible show">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true" style="font-size:25px">&times;</span>
   </button><strong>¡Fallo!</strong> La persona no se encuentra registrada en el sistema o el correo no coincide con el de la persona registrada
-</div>
-{% endif %}
-<!--Funcionalidades-->
-<div class="card-body justify-content-center">
-  <form acction="/Registrar_U/" method="POST" id="form1" name="form1">
-    {% csrf_token %}
-    <label for="username">Boleta</label>
-    <div class="input-group form-group">
-      <input type="text" class="form-control input-login" placeholder="Ingrese boleta o número de empleado" name="Id">
     </div>
-    <label for="username">Correo electronico</label>
-    <div class="input-group form-group">
-      <input type="text" class="form-control input-login" placeholder="Ingrese correo electrónico" name="Correo">
+    {% endif %}
+    <!--Funcionalidades-->
+    <div class="Card" style="width: 50%;">
+        <form class="R" form acction="/Registrar_U/" method="POST" id="form1" name="form1">
+            {% csrf_token %}
+            <div class="form-group form-inline row R2">
+                <label for="Usuario" class="col-sm-2 col-form-label"> Usuario </label>
+                <input type="number" class="form-control col-sm-8 R3" id="Usuario" placeholder="Ingrese Boleta o Numero de Empleado" name="Id">
+            </div>
+            <div class="form-group form-inline row R2">
+                <label for="Correo_Reg" class="col-sm-2 col-form-label"> Correo </label>
+                <div class="input-group col-md-9">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text R5">@</div>
+                    </div>
+                    <input type="text" class=" form-control R3 R4" id="Correo_Reg" placeholder="Username" name="Correo">
+                </div>
+            </div>
+            <div class="form-group form-inline R2">
+                <label for="Contraseña_Reg" class="col-sm-2 col-form-label"> Contraseña </label>
+                <input type="password" class="form-control col-sm-8 R3" id="Contraseña_Reg" placeholder="Ingrese Contraseña" name="passwd">
+            </div>
+            <div class="form-group form-inline R2 text-center">
+                <label for="Contraseña_Conf" class="col-sm-2 col-form-label"> Confirmación de Contraseña </label>
+                <input type="password" class="form-control col-sm-8 R3" id="Contraseña_Conf" placeholder="Ingrese Nuevamente Contraseña" name="passwd2" onchange="change()">
+            </div>
+            <script type="text/javascript">
+                document.getElementById('Registrar').disabled = false;
+
+                function change() {
+                    var p1 = document.getElementById("Contraseña_Reg").value;
+                    var p2 = document.getElementById("Contraseña_Conf").value;
+                    if (p1 != p2) {
+                        alert("Las passwords deben de coincidir");
+                        return false;
+                    } else {
+                        alert("Todo esta correcto");
+                        return true;
+                    }
+                }
+            </script>
+            <button type="submit" class="btn B1" id="btn-Reg_Usr"> Registrar </button>
+            <br>
+            <a href="/accounts/login/" class="mod">Regresar al login</a>
+        </form>
     </div>
-    <label for="password">Contraseña</label>
-    <div class="input-group form-group">
-      <input type="password" class="form-control input-login" placeholder="Ingrese contraseña" name="passwd"
-        id="passwd">
-    </div>
-    <label for="password">Confirmacion de contraseña</label>
-    <div class="input-group form-group">
-      <input type="password" class="form-control input-login" placeholder="Ingrese nuevamente la contraseña"
-        name="passwd2" id="passwd2" onchange="change()">
-    </div>
-    <div>
-      <input id="boton_registrar" type="submit" value="Registrar" class="btn  reg_btn" id="registrarse">
-    </div>
-    <script type="text/javascript">
-      document.getElementById('Registrar').disabled = false;
-      function change() {
-        var p1 = document.getElementById("passwd").value;
-        var p2 = document.getElementById("passwd2").value;
-        if (p1 != p2) {
-          alert("Las passwords deben de coincidir");
-          return false;
-        } else {
-          alert("Todo esta correcto");
-          return true;
-        }
-      }
-    </script>
-  </form>
-</div>
-{% endblock %}
+</body>
+
+</html>

@@ -1,60 +1,47 @@
-{% extends "Plantilla.html" %}
-{% load static %}
-{% block Estilos %}
-  <meta charset="UTF-8">
-  <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% endblock %}
-      {% block Titulo %}<title>Registro de calificaciones</title>{% endblock %}
-      {% block MenuDerecha %}
-      {% include "SideBar.html" %}
-      {% endblock %}
-      {% block Pantalla %}
-  <link rel="stylesheet" href="{% static 'css/estilo_reg_calificaciones.css' %}">
-  <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-<body>
-
-
-  <!--Funcionalidades-->
-    <div class="col-md-10">
-        <div class="card-body justify-content-center">
-          <form>
+{% extends "Plantilla.html" %} {% load static %} {% block Estilos %}
+<meta charset="UTF-8">
+<!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/estilo_reg_c.css' %}"> {% endblock %} {% block Titulo %}
+<title>Registro de calificaciones</title>{% endblock %} {% block MenuDerecha %} {% include "SideBar.html" %} {% endblock %} {% block Pantalla %}
+<!--Funcionalidades-->
+<div class="col-md-10">
+    <div class="card-body justify-content-center">
+        <form>
             <label id="Text_profesor">@Profesor</label>
             <div class="Tex_Unidad">
-            <label for="password">Unidades de aprendizaje</label>
-            <div class="input-group form-group">
-              <input type="password" class="form-control input-login" >
-            </div>
+                <label for="password">Unidades de aprendizaje</label>
+                <div class="input-group form-group">
+                    <input type="password" class="form-control input-login">
+                </div>
             </div>
             <div class="Select_Dep">
-              <label for="Unidad_A" class="dep"> Departamental </label>
-              <select class="form-control col-sm-8 R5" id="Unidad_A">
+                <label for="Unidad_A" class="dep"> Departamental </label>
+                <select class="form-control col-sm-8 R5" id="Unidad_A">
                 <option class="is-invalid"> ... </option>
                 <option value=" ">  </option>
                 <option value=" ">  </option>
               </select>
             </div>
             <table class="table table-bordered table-hover R2" id="T_Kar">
-              <thead class="T1 text-center">
-                <tr>
-                  <th scope="col">Alumnos</th>
-                  <th scope="col">Calificación</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="col">  </th>
-                  <th scope="col">   </th>
-                </tr>
-              </tbody>
+                <thead class="T1 text-center">
+                    <tr>
+                        <th scope="col">Alumnos</th>
+                        <th scope="col">Calificación</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="col"> </th>
+                        <th scope="col"><input type="text" class="form-control input-login" id="Cali"> </th>
+                    </tr>
+                </tbody>
             </table>
             <div>
-              <input id="boton_registrar" type="submit" value="Registrar" class="btn  reg_btn">
+                <input id="boton_registrar" type="submit" value="Registrar" class="btn  reg_btn">
             </div>
-          </form>
-        </div>
+        </form>
     </div>
-  
-</body>
+</div>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 {% endblock %}

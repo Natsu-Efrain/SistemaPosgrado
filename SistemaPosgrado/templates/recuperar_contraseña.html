@@ -1,35 +1,52 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <!-- sirve para que nuestra pagina se vea bien en todos los dispositivos -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Recuperar contraseña</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/recuperar_contra.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Recuperar.css' %}">
     <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </head>
+
 <body>
-  <div class="container">
-    <div class="d-flex justify-content-center h-100">
-      <div class="card">
-        <div class="card-body justify-content-center">
-          <form>
-            <label for="username">Ingrese un correo electrónico para la recuperación de la cuenta</label>
-            <div class="input-group form-group">
-              <input type="text" class="form-control input-login" placeholder="Ingrese correo electrónico ">
-            </div>
-           
-            <div class="d-flex justify-content-center">
-              <input type="submit" value="Enviar correo" class="btn login_btn">
-            </div>
-          </form>
-         
-        </div>
-      </div>
+    {% if validacion == 'Exito' %}
+    <div class="alert alert-success fade in alert-dismissible show">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true" style="font-size:25px">&times;</span>
+    </button><strong>¡Exito!</strong> Se ha enviado el correo
     </div>
-  </div>
+    {% elif validacion == 'Fallo' %}
+    <div class="alert alert-danger fade in alert-dismissible show">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true" style="font-size:25px">&times;</span>
+    </button><strong>¡Fallo!</strong> No hay ningun usuario registrado con ese correo
+    </div>
+    {% endif %}
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-body justify-content-center">
+                    <form action="/Recuperar_contraseña/" method="POST">
+                        {% csrf_token %}
+                        <label for="username">Ingrese un correo electrónico para la recuperación de la cuenta</label>
+                        <div class="input-group form-group">
+                            <input type="text" class="form-control input-login" placeholder="Ingrese correo electrónico " name="Correo">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Enviar correo" class="btn login_btn">
+                        </div>
+                    </form>
+                    <br>
+                    <a href="/accounts/login/" class="mod">Regresar al login</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

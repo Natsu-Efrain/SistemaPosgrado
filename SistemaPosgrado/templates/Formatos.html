@@ -1,46 +1,27 @@
-{% extends "Plantilla.html" %}
-{% load static %}
-{% block Estilos %}
-<link rel="stylesheet" href="{% static 'css/estilos_Altas_Bajas Profesores.css' %}">
-{% endblock %}
-{% block Titulo %}<title>Formatos</title>{% endblock %}
-{% block MenuDerecha %}
-{% include "SideBar.html" %}
-{% endblock %}
-{% block Pantalla %}
+{% extends "Plantilla.html" %} {% load static %} {% block Estilos %}
+<link rel="stylesheet" href="{% static 'css/Formatos.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> {% endblock %} {% block Titulo %}
+<title>Formatos</title>{% endblock %} {% block MenuDerecha %} {% include "SideBar.html" %} {% endblock %} {% block Pantalla %}
 <!-- Botones e imagenes del rectangulo-->
+<div class="container-formatos">
+    <div>
+        <img id="img-boleta" src="{% static 'assets/images/logo_boleta.png' %}">
+    </div>
 
-<div class="form-group row R2" >
-  <label for="Numero de empleado" class="col-sm-1 col-form-label">Número de empleado</label>
-  <input type="number" class="form-control col-sm-4 R3" id="numero_empleado" placeholder="1-2-3...">
-</div>
-<div class="form-row R2" >
-  <div class="form-group col-md-4 text-center">
-      <label for="Nom_A">Nombre (s)</label>
-      <input type="text" class="form-control R3" id="Nom_A" >
-  </div>
-  <div class="form-group col-md-4 text-center">
-      <label for="AP_A">Apellido Paterno</label>
-      <input type="text" class="form-control R3" id="AP_A">
-  </div>
-  <div class="form-group col-md-4 text-center">
-      <label for="AM_A">Apellido Materno</label>
-      <input type="text" class="form-control R3" id="AM_A">
-  </div>
-</div>
+    <div>
+        <img id="img-SIP" src="{% static 'assets/images/logo _SIP.png' %}">
+    </div>
 
-<!-- Por si nos arrepentimos y mejor tamos que ellos lo ingresen solos
-<div class="form-group row R2" >
-  <label for="Est_A" class="col-sm-1 col-form-label"> Estado </label>
-  <input type="text" class="col-sm-4 R3" id="Est_A">
+    <div>
+        <input id="boton_boleta" type="submit" value="Generar boleta global" class="btn  boleta_btn">
+    </div>
+
+    <div>
+        <input id="boton_SIP" type="submit" value="Generar SIP-8BIS" class="btn boleta_btn">
+    </div>
+
 </div>
-<div class="form-group row R2" >
-  <label for="Mun_A" class="col-sm-1 col-form-label"> Municipio </label>
-  <input type="text" class="col-sm-4 R3" id="Mun_A">
-</div>
--->
-<button type="submit" class="btn B1 " id="btn-Re_Al" > Dar de baja </button>
-</form>
-</div>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 
 {% endblock %}

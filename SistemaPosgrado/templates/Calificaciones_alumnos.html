@@ -6,18 +6,21 @@
 <link rel="stylesheet" href="{% static 'css/Calificaciones.css' %}"> {% endblock %} {% block Titulo %}
 <title>Calificaciones</title>{% endblock %} {% block MenuDerecha %} {% include "SideBar.html" %} {% endblock %} {% block Pantalla %}
 <!--Funcionalidades-->
-<form action="" class="R" id="Kardex">
+<form action="" class="R" id="Cali_Alum" name="Cali_Alum" method="POST">
+    {% csrf_token %}
+    <input type="hidden" id="Funcion_1" name="Funcion">
+    <input type="hidden" value="{{user.username}}" name="Prueba" id="Prueba">
     <p><label for="Alumno"> Alumno: @Alumno </label></p>
     <p><label for="Posgrado"> Posgrado: @Posgrado de Alumno  </label></p>
     <p><label for="Promedio"> Promedio: @Promedio de Alumno  </label></p>
-    <table class="table table-bordered table-hover R2" id="T_Kar">
+    <table class="table table-bordered table-hover R2" id="T_Cal_A">
         <thead class="T1 text-center">
             <tr>
-                <th scope="col">Clave</th>
-                <th scope="col">Unidad</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Periodo</th>
-                <th scope="col">Calificación</th>
+                <th scope="col" class="col-md-4">Unidad</th>
+                <th scope="col" class="col-md-2">1er Parcial</th>
+                <th scope="col" class="col-md-2">2do Parcial</th>
+                <th scope="col" class="col-md-2">3er Parcial</th>
+                <th scope="col" class="col-md-2">Final</th>
             </tr>
         </thead>
         <tbody>
@@ -30,5 +33,16 @@
             </tr>
         </tbody>
     </table>
+    <a href="#" onclick="EnviarK()" class="btn B2 " id="btn-Kardex" value="Kardex">Kardex</a>
+    <script type="text/javascript">
+        function EnviarK() {
+            document.getElementById('Funcion_1').value = "CargarPagina";
+            var x = document.getElementById('Prueba').value;
+            alert(x);
+            var formulario = document.Cali_Alum;
+            formulario.action = "/Kardex/";
+            formulario.submit();
+        }
+    </script>
 </form>
 {% endblock %}

@@ -19,6 +19,5 @@ class Personal(models.Model):
     Edad=models.IntegerField()
     Sexo=models.CharField(max_length=1)
     Telefono=models.IntegerField()
-    Tipo_A=models.CharField(max_length=10)
     Estado_P=models.CharField(max_length=10)
-    Cargo=models.CharField(max_length=30)
+    Rol=models.CharField(max_length=100)
